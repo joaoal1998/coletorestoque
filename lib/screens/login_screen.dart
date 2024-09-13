@@ -17,71 +17,122 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Kinitos Festas', textAlign: TextAlign.center),
+        backgroundColor: Colors.deepOrangeAccent,
+        foregroundColor: Colors.white,
+        centerTitle: true,
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset('assets/estoque.png'),
-            const Text(
-              'Login',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-              textAlign: TextAlign.start,
-            ),
-            const SizedBox(height: 20),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: TextField(
-                controller: _usernameController,
-                decoration: const InputDecoration(
-                  labelText: 'Nome de Usuário',
-                  border: OutlineInputBorder(),
+      body: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 24.0),
+        color: Colors.yellow[50],
+        child: Center(
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Image.asset(
+                  'assets/estoque.png',
+                  height: 240,
+                  width: 120,
                 ),
-              ),
-            ),
-            const SizedBox(height: 20),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: TextField(
-                controller: _passwordController,
-                obscureText: _obscurePassword,
-                decoration: InputDecoration(
-                  labelText: 'Senha',
-                  border: const OutlineInputBorder(),
-                  suffixIcon: IconButton(
-                    icon: Icon(
-                      _obscurePassword ? Icons.visibility_off : Icons.visibility,
+                const SizedBox(height: 30),
+                const Text(
+                  'Login',
+                  style: TextStyle(
+                    fontSize: 28,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.deepOrangeAccent, // Cor do título
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 30),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                  child: TextField(
+                    controller: _usernameController,
+                    decoration: InputDecoration(
+                      labelText: 'Nome de Usuário',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      filled: true,
+                      fillColor: Colors.white,
                     ),
-                    onPressed: () {
-                      setState(() {
-                        _obscurePassword = !_obscurePassword;
-                      });
-                    },
                   ),
                 ),
-              ),
+                const SizedBox(height: 20),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                  child: TextField(
+                    controller: _passwordController,
+                    obscureText: _obscurePassword,
+                    decoration: InputDecoration(
+                      labelText: 'Senha',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      filled: true,
+                      fillColor: Colors.white,
+                      suffixIcon: IconButton(
+                        icon: Icon(
+                          _obscurePassword
+                              ? Icons.visibility_off
+                              : Icons.visibility,
+                          color: Colors.deepOrangeAccent,
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            _obscurePassword = !_obscurePassword;
+                          });
+                        },
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 30),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(vertical: 16),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      backgroundColor: Colors.deepOrangeAccent,
+                      foregroundColor: Colors.white),
+                  onPressed: () {
+                    final username = _usernameController.text;
+                    final password = _passwordController.text;
+                    if (username.isNotEmpty && password.isNotEmpty) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text('Login realizado com sucesso!'),
+                        ),
+                      );
+                      Navigator.pushReplacementNamed(context, '/menu');
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text('Por favor, preencha todos os campos.'),
+                        ),
+                      );
+                    }
+                  },
+                  child: const Text(
+                    'Entrar',
+                    style: TextStyle(fontSize: 18),
+                  ),
+                ),
+                const SizedBox(height: 20),
+                TextButton(
+                  onPressed: () {
+                  },
+                  child: const Text(
+                    'Esqueci minha senha',
+                    style: TextStyle(color: Colors.deepOrangeAccent),
+                  ),
+                ),
+              ],
             ),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                final username = _usernameController.text;
-                final password = _passwordController.text;
-                if (username.isNotEmpty && password.isNotEmpty) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                        content: Text('Login realizado com sucesso!')),
-                  );
-                  Navigator.pushReplacementNamed(context, '/menu');
-                } else {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                        content: Text('Por favor, preencha todos os campos.')),
-                  );
-                }
-              },
-              child: const Text('Entrar'),
-            ),
-          ],
+          ),
         ),
       ),
     );
