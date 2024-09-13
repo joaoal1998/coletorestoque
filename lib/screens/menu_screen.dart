@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 
 class MenuScreen extends StatefulWidget {
+  const MenuScreen({super.key});
+
   @override
   _MenuScreenState createState() => _MenuScreenState();
 }
 
 class _MenuScreenState extends State<MenuScreen> {
-  int _selectedIndex = 3;  // Índice para o menu
-
+  int _selectedIndex = 3;
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -34,7 +35,7 @@ class _MenuScreenState extends State<MenuScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset('assets/estoque.png'), // Imagem do menu
+            Image.asset('assets/estoque.png'),
             ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(context, '/consultarEstoque');
