@@ -22,10 +22,10 @@ class KinitosFestasApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const LoginScreen(),
-        '/menu': (context) =>  MenuScreen(),
-        '/consultarEstoque': (context) => ConsultarEstoqueScreen(),
-        '/ajustarContagem': (context) => AjustarContagemScreen(),
-        '/conferencia': (context) => ConferenciaScreen(),
+        '/menu': (context) =>  const MenuScreen(),
+        '/consultarEstoque': (context) => const ConsultarEstoqueScreen(),
+        '/ajustarContagem': (context) => const AjustarContagemScreen(),
+        '/conferencia': (context) => const ConferenciaScreen(),
       },
     );
   }

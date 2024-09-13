@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ConferenciaScreen extends StatefulWidget {
+  const ConferenciaScreen({super.key});
+
   @override
   _ConferenciaScreenState createState() => _ConferenciaScreenState();
 }
@@ -28,7 +30,7 @@ class _ConferenciaScreenState extends State<ConferenciaScreen> {
       appBar: AppBar(
         title: const Text('Conferência', textAlign: TextAlign.center),
       ),
-      body: Center(
+      body: const Center(
         child: Text('Tela de Conferência'),
       ),
       bottomNavigationBar: BottomNavigationBar(

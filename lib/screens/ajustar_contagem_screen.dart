@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class AjustarContagemScreen extends StatefulWidget {
+  const AjustarContagemScreen({super.key});
+
   @override
   _AjustarContagemScreenState createState() => _AjustarContagemScreenState();
 }
@@ -28,7 +30,7 @@ class _AjustarContagemScreenState extends State<AjustarContagemScreen> {
       appBar: AppBar(
         title: const Text('Ajustar Contagem', textAlign: TextAlign.center),
       ),
-      body: Center(
+      body: const Center(
         child: Text('Tela de Ajuste de Contagem'),
       ),
       bottomNavigationBar: BottomNavigationBar(

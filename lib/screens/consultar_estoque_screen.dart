@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ConsultarEstoqueScreen extends StatefulWidget {
+  const ConsultarEstoqueScreen({super.key});
+
   @override
   _ConsultarEstoqueScreenState createState() => _ConsultarEstoqueScreenState();
 }
