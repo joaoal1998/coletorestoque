@@ -25,7 +25,7 @@ class KinitosFestasApp extends StatelessWidget {
         '/menu': (context) => const MenuScreen(),
         '/consultarEstoque': (context) => const ConsultarEstoqueScreen(),
         '/ajustarContagem': (context) => const AjustarContagemScreen(),
-        '/conferencia': (context) => const ConferenciaScreen()
+        '/conferencia': (context) => const ConferenciaScreen(),
       },
     );
   }
