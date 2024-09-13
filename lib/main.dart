@@ -6,10 +6,12 @@ import 'screens/ajustar_contagem_screen.dart';
 import 'screens/conferencia_screen.dart';
 
 void main() {
-  runApp(KinitosFestasApp());
+  runApp(const KinitosFestasApp());
 }
 
 class KinitosFestasApp extends StatelessWidget {
+  const KinitosFestasApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -19,11 +21,11 @@ class KinitosFestasApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-        '/': (context) => LoginScreen(),
-        '/menu': (context) => MenuScreen(),
-        '/consultarEstoque': (context) => ConsultarEstoqueScreen(),
-        '/ajustarContagem': (context) => AjustarContagemScreen(),
-        '/conferencia': (context) => ConferenciaScreen(),
+        '/': (context) => const LoginScreen(),
+        '/menu': (context) => const MenuScreen(),
+        '/consultarEstoque': (context) => const ConsultarEstoqueScreen(),
+        '/ajustarContagem': (context) => const AjustarContagemScreen(),
+        '/conferencia': (context) => const ConferenciaScreen(),
       },
     );
   }
