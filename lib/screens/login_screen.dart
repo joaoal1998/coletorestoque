@@ -49,9 +49,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 8.0),
                   child: TextField(
+                    cursorColor: Colors.deepOrangeAccent,
                     controller: _usernameController,
                     decoration: InputDecoration(
                       labelText: 'Nome de Usuário',
+                      floatingLabelStyle: const TextStyle(color: Colors.deepOrangeAccent,),
+
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
@@ -59,7 +62,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       fillColor: Colors.white,
                       focusedBorder: OutlineInputBorder(
                         borderSide: const BorderSide(
-                          color: Colors.deepOrangeAccent, // Cor laranja ao focar
+                          color: Colors.deepOrangeAccent,
                           width: 2.0,
                         ),
                         borderRadius: BorderRadius.circular(10),
@@ -71,10 +74,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 8.0),
                   child: TextField(
+                    cursorColor: Colors.deepOrangeAccent,
                     controller: _passwordController,
                     obscureText: _obscurePassword,
                     decoration: InputDecoration(
                       labelText: 'Senha',
+                      floatingLabelStyle: const TextStyle(color: Colors.deepOrangeAccent),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
