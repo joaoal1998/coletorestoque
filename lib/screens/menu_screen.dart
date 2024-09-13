@@ -40,25 +40,25 @@ class _MenuScreenState extends State<MenuScreen> {
               onPressed: () {
                 Navigator.pushNamed(context, '/consultarEstoque');
               },
-              child: Text('Consultar Estoque'),
+              child: const Text('Consultar Estoque'),
             ),
             ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(context, '/ajustarContagem');
               },
-              child: Text('Ajustar Contagem'),
+              child: const Text('Ajustar Contagem'),
             ),
             ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(context, '/conferencia');
               },
-              child: Text('Conferência'),
+              child: const Text('Conferência'),
             ),
             ElevatedButton(
               onPressed: () {
                 Navigator.pushReplacementNamed(context, '/');
               },
-              child: Text('Sair'),
+              child: const Text('Sair'),
             ),
           ],
         ),
