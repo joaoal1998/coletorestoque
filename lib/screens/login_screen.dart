@@ -13,7 +13,7 @@ class LoginScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset('assets/estoque.png'), // Imagem do login
+            Image.asset('assets/estoque.png'),
             const Padding(
               padding: EdgeInsets.all(16.0),
               child: TextField(
