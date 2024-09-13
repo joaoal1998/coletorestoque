@@ -32,8 +32,7 @@ class _LoginScreenState extends State<LoginScreen> {
               children: [
                 Image.asset(
                   'assets/estoque.png',
-                  height: 240,
-                  width: 120,
+                  height: 250,
                 ),
                 const SizedBox(height: 30),
                 const Text(
@@ -41,7 +40,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   style: TextStyle(
                     fontSize: 28,
                     fontWeight: FontWeight.bold,
-                    color: Colors.deepOrangeAccent, // Cor do título
+                    color: Colors.deepOrangeAccent,
                   ),
                   textAlign: TextAlign.center,
                 ),
@@ -87,7 +86,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       fillColor: Colors.white,
                       focusedBorder: OutlineInputBorder(
                         borderSide: const BorderSide(
-                          color: Colors.deepOrangeAccent, // Cor laranja ao focar
+                          color: Colors.deepOrangeAccent,
                           width: 2.0,
                         ),
                         borderRadius: BorderRadius.circular(10),
@@ -138,15 +137,6 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: const Text(
                     'Entrar',
                     style: TextStyle(fontSize: 18),
-                  ),
-                ),
-                const SizedBox(height: 20),
-                TextButton(
-                  onPressed: () {
-                  },
-                  child: const Text(
-                    'Esqueci minha senha',
-                    style: TextStyle(color: Colors.deepOrangeAccent),
                   ),
                 ),
               ],
