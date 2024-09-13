@@ -1,7 +1,28 @@
 import 'package:flutter/material.dart';
 
-class MenuScreen extends StatelessWidget {
-  const MenuScreen({super.key});
+class MenuScreen extends StatefulWidget {
+  @override
+  _MenuScreenState createState() => _MenuScreenState();
+}
+
+class _MenuScreenState extends State<MenuScreen> {
+  int _selectedIndex = 3;  // Índice para o menu
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+
+    if (index == 0) {
+      Navigator.pushReplacementNamed(context, '/consultarEstoque');
+    } else if (index == 1) {
+      Navigator.pushReplacementNamed(context, '/ajustarContagem');
+    } else if (index == 2) {
+      Navigator.pushReplacementNamed(context, '/conferencia');
+    } else if (index == 3) {
+      Navigator.pushReplacementNamed(context, '/menu');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -18,28 +39,50 @@ class MenuScreen extends StatelessWidget {
               onPressed: () {
                 Navigator.pushNamed(context, '/consultarEstoque');
               },
-              child: const Text('Consultar Estoque'),
+              child: Text('Consultar Estoque'),
             ),
             ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(context, '/ajustarContagem');
               },
-              child: const Text('Ajustar Contagem'),
+              child: Text('Ajustar Contagem'),
             ),
             ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(context, '/conferencia');
               },
-              child: const Text('Conferência'),
+              child: Text('Conferência'),
             ),
             ElevatedButton(
               onPressed: () {
                 Navigator.pushReplacementNamed(context, '/');
               },
-              child: const Text('Sair'),
+              child: Text('Sair'),
             ),
           ],
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.inventory),
+            label: 'Estoque',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.edit),
+            label: 'Contagem',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.check_circle),
+            label: 'Conferência',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.menu),
+            label: 'Menu',
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped,
       ),
     );
   }

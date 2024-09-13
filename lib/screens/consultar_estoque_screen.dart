@@ -1,7 +1,26 @@
 import 'package:flutter/material.dart';
 
-class ConsultarEstoqueScreen extends StatelessWidget {
-  const ConsultarEstoqueScreen({super.key});
+class ConsultarEstoqueScreen extends StatefulWidget {
+  @override
+  _ConsultarEstoqueScreenState createState() => _ConsultarEstoqueScreenState();
+}
+
+class _ConsultarEstoqueScreenState extends State<ConsultarEstoqueScreen> {
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+
+    if (index == 0) {
+      Navigator.pushReplacementNamed(context, '/consultarEstoque');
+    } else if (index == 1) {
+      Navigator.pushReplacementNamed(context, '/ajustarContagem');
+    } else if (index == 2) {
+      Navigator.pushReplacementNamed(context, '/conferencia');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -11,6 +30,24 @@ class ConsultarEstoqueScreen extends StatelessWidget {
       ),
       body: const Center(
         child: Text('Tela de Consulta de Estoque'),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.inventory),
+            label: 'Estoque',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.edit),
+            label: 'Contagem',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.check_circle),
+            label: 'Conferência',
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped,
       ),
     );
   }
