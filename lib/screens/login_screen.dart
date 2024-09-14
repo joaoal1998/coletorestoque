@@ -51,7 +51,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     cursorColor: Colors.deepOrangeAccent,
                     controller: _usernameController,
                     decoration: InputDecoration(
-                      labelText: 'Nome de Usuário',
+                      labelText: 'Usuário',
                       floatingLabelStyle: const TextStyle(color: Colors.deepOrangeAccent,),
 
                       border: OutlineInputBorder(
