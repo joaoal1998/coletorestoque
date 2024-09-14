@@ -43,7 +43,7 @@ class MenuScreen extends StatelessWidget {
               onPressed: () {
                 Navigator.pushNamed(context, '/consultarEstoque');
               },
-              child: const Text('Consultar Estoque'),
+              child: const Text('Consultar estoque'),
             ),
             const SizedBox(height: 15),
             ElevatedButton(
@@ -58,7 +58,7 @@ class MenuScreen extends StatelessWidget {
               onPressed: () {
                 Navigator.pushNamed(context, '/ajustarContagem');
               },
-              child: const Text('Ajustar Contagem'),
+              child: const Text('Ajustar contagem'),
             ),
             const SizedBox(height: 15),
             ElevatedButton(
