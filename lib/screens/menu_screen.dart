@@ -80,7 +80,8 @@ class MenuScreen extends StatelessWidget {
               onPressed: () {
                 Navigator.pushReplacementNamed(context, '/');
               },
-              child: const Text('Sair', style: TextStyle(color: Colors.deepOrangeAccent)),
+              child: const Text('Sair',
+                  style: TextStyle(color: Colors.deepOrangeAccent)),
             ),
           ],
         ),

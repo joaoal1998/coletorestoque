@@ -52,8 +52,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     controller: _usernameController,
                     decoration: InputDecoration(
                       labelText: 'Usuário',
-                      floatingLabelStyle: const TextStyle(color: Colors.deepOrangeAccent,),
-
+                      floatingLabelStyle: const TextStyle(
+                        color: Colors.deepOrangeAccent,
+                      ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
@@ -78,7 +79,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     obscureText: _obscurePassword,
                     decoration: InputDecoration(
                       labelText: 'Senha',
-                      floatingLabelStyle: const TextStyle(color: Colors.deepOrangeAccent),
+                      floatingLabelStyle:
+                          const TextStyle(color: Colors.deepOrangeAccent),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
