@@ -29,11 +29,17 @@ class _ConferenciaScreenState extends State<ConferenciaScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Conferência', textAlign: TextAlign.center),
+        backgroundColor: Colors.deepOrangeAccent,
+        foregroundColor: Colors.white,
       ),
-      body: const Center(
-        child: Text('Tela de Conferência'),
+      body: Container(
+        color: Colors.yellow[50],
+        child: const Center(
+          child: Text('Tela de Conferência'),
+        ),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: Colors.deepOrangeAccent,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.inventory),

@@ -29,11 +29,17 @@ class _AjustarContagemScreenState extends State<AjustarContagemScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Ajustar Contagem', textAlign: TextAlign.center),
+        backgroundColor: Colors.deepOrangeAccent,
+        foregroundColor: Colors.white,
       ),
-      body: const Center(
-        child: Text('Tela de Ajuste de Contagem'),
+      body: Container(
+        color: Colors.yellow[50],
+        child: const Center(
+          child: Text('Tela de Ajuste de Contagem'),
+        ),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: Colors.deepOrangeAccent,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.inventory),

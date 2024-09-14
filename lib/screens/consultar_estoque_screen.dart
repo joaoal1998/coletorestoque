@@ -29,11 +29,17 @@ class _ConsultarEstoqueScreenState extends State<ConsultarEstoqueScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Consultar Estoque', textAlign: TextAlign.center),
+        backgroundColor: Colors.deepOrangeAccent,
+        foregroundColor: Colors.white,
       ),
-      body: const Center(
-        child: Text('Tela de Consulta de Estoque'),
+      body: Container(
+        color: Colors.yellow[50],
+        child: const Center(
+          child: Text('Tela de Consulta de Estoque'),
+        ),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: Colors.deepOrangeAccent,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.inventory),
