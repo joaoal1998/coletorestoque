@@ -120,11 +120,6 @@ class _LoginScreenState extends State<LoginScreen> {
                     final username = _usernameController.text;
                     final password = _passwordController.text;
                     if (username.isNotEmpty && password.isNotEmpty) {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(
-                          content: Text('Login realizado com sucesso!'),
-                        ),
-                      );
                       Navigator.pushReplacementNamed(context, '/menu');
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(
