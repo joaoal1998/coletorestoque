@@ -20,6 +20,16 @@ class MenuScreen extends StatelessWidget {
           children: [
             Image.asset('assets/estoque.png', height: 250),
             const SizedBox(height: 30),
+            const Text(
+              'Menu',
+              style: TextStyle(
+                fontSize: 28,
+                fontWeight: FontWeight.bold,
+                color: Colors.deepOrangeAccent,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 30),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 minimumSize: const Size(double.infinity, 50),
