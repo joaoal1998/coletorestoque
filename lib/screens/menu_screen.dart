@@ -1,89 +1,78 @@
 import 'package:flutter/material.dart';
 
-class MenuScreen extends StatefulWidget {
+class MenuScreen extends StatelessWidget {
   const MenuScreen({super.key});
-
-  @override
-  _MenuScreenState createState() => _MenuScreenState();
-}
-
-class _MenuScreenState extends State<MenuScreen> {
-  int _selectedIndex = 3;
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-
-    if (index == 0) {
-      Navigator.pushReplacementNamed(context, '/consultarEstoque');
-    } else if (index == 1) {
-      Navigator.pushReplacementNamed(context, '/ajustarContagem');
-    } else if (index == 2) {
-      Navigator.pushReplacementNamed(context, '/conferencia');
-    } else if (index == 3) {
-      Navigator.pushReplacementNamed(context, '/menu');
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Kinitos Festas', textAlign: TextAlign.center),
+        title: const Text('Kinitos Festas'),
+        centerTitle: true,
+        backgroundColor: Colors.deepOrangeAccent,
+        foregroundColor: Colors.white,
       ),
-      body: Center(
+      body: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 24.0),
+        color: Colors.yellow[50],
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset('assets/estoque.png'),
+            Image.asset('assets/estoque.png', height: 250),
+            const SizedBox(height: 30),
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                minimumSize: const Size(double.infinity, 50),
+                backgroundColor: Colors.deepOrangeAccent,
+                foregroundColor: Colors.white,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+              ),
               onPressed: () {
                 Navigator.pushNamed(context, '/consultarEstoque');
               },
               child: const Text('Consultar Estoque'),
             ),
+            const SizedBox(height: 15),
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                minimumSize: const Size(double.infinity, 50),
+                backgroundColor: Colors.deepOrangeAccent,
+                foregroundColor: Colors.white,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+              ),
               onPressed: () {
                 Navigator.pushNamed(context, '/ajustarContagem');
               },
               child: const Text('Ajustar Contagem'),
             ),
+            const SizedBox(height: 15),
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                minimumSize: const Size(double.infinity, 50),
+                backgroundColor: Colors.deepOrangeAccent,
+                foregroundColor: Colors.white,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+              ),
               onPressed: () {
                 Navigator.pushNamed(context, '/conferencia');
               },
               child: const Text('Conferência'),
             ),
-            ElevatedButton(
+            const SizedBox(height: 30),
+            TextButton(
               onPressed: () {
                 Navigator.pushReplacementNamed(context, '/');
               },
-              child: const Text('Sair'),
+              child: const Text('Sair', style: TextStyle(color: Colors.deepOrangeAccent)),
             ),
           ],
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.inventory),
-            label: 'Estoque',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.edit),
-            label: 'Contagem',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.check_circle),
-            label: 'Conferência',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.menu),
-            label: 'Menu',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
       ),
     );
   }
