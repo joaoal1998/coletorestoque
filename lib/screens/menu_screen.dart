@@ -16,8 +16,9 @@ class MenuScreen extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 24.0),
         color: Colors.yellow[50],
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
+            const SizedBox(height: 60),
             Image.asset('assets/estoque.png', height: 250),
             const SizedBox(height: 30),
             const Text(
