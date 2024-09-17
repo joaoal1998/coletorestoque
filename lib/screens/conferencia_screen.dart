@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
+import 'ajustar_contagem_screen.dart';
+import 'consultar_estoque_screen.dart';
 
 class ConferenciaScreen extends StatefulWidget {
   const ConferenciaScreen({super.key});
@@ -16,11 +19,23 @@ class _ConferenciaScreenState extends State<ConferenciaScreen> {
     });
 
     if (index == 0) {
-      Navigator.pushReplacementNamed(context, '/consultarEstoque');
+      Navigator.push(
+          context,
+          PageTransition(
+              child: const ConsultarEstoqueScreen(),
+              type: PageTransitionType.fade));
     } else if (index == 1) {
-      Navigator.pushReplacementNamed(context, '/ajustarContagem');
+      Navigator.push(
+          context,
+          PageTransition(
+              child: const AjustarContagemScreen(),
+              type: PageTransitionType.fade));
     } else if (index == 2) {
-      Navigator.pushReplacementNamed(context, '/conferencia');
+      Navigator.push(
+          context,
+          PageTransition(
+              child: const ConferenciaScreen(),
+              type: PageTransitionType.fade));
     }
   }
 
