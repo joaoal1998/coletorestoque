@@ -8,7 +8,6 @@ class HomeScreen extends StatefulWidget {
   final int paginaInicial;
   const HomeScreen({super.key, this.paginaInicial = 0});
 
-
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }

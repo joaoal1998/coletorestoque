@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
 
-class ConferenciaScreen extends StatefulWidget {
+class ConferenciaScreen extends StatelessWidget {
   const ConferenciaScreen({super.key});
 
-  @override
-  _ConferenciaScreenState createState() => _ConferenciaScreenState();
-}
-
-class _ConferenciaScreenState extends State<ConferenciaScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

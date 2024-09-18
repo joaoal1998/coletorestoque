@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
 
-class ConsultarEstoqueScreen extends StatefulWidget {
+class ConsultarEstoqueScreen extends StatelessWidget {
   const ConsultarEstoqueScreen({super.key});
 
-  @override
-  _ConsultarEstoqueScreenState createState() => _ConsultarEstoqueScreenState();
-}
-
-class _ConsultarEstoqueScreenState extends State<ConsultarEstoqueScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

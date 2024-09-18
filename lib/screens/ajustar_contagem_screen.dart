@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
 
-class AjustarContagemScreen extends StatefulWidget {
+class AjustarContagemScreen extends StatelessWidget {
   const AjustarContagemScreen({super.key});
 
-  @override
-  _AjustarContagemScreenState createState() => _AjustarContagemScreenState();
-}
-
-class _AjustarContagemScreenState extends State<AjustarContagemScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

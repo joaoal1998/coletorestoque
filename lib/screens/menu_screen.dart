@@ -45,7 +45,8 @@ class MenuScreen extends StatelessWidget {
                 Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const HomeScreen(paginaInicial: 1)));
+                        builder: (context) =>
+                            const HomeScreen(paginaInicial: 1)));
               },
               child: const Text('Consultar estoque'),
             ),
@@ -63,7 +64,8 @@ class MenuScreen extends StatelessWidget {
                 Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const HomeScreen(paginaInicial: 2)));
+                        builder: (context) =>
+                            const HomeScreen(paginaInicial: 2)));
               },
               child: const Text('Ajustar contagem'),
             ),
@@ -81,7 +83,8 @@ class MenuScreen extends StatelessWidget {
                 Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const HomeScreen(paginaInicial: 3)));
+                        builder: (context) =>
+                            const HomeScreen(paginaInicial: 3)));
               },
               child: const Text('Conferência'),
             ),
