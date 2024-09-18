@@ -56,22 +56,22 @@ class _HomeScreenState extends State<HomeScreen> {
           BottomNavigationBarItem(
             icon: Icon(Icons.menu),
             label: 'Menu',
-            backgroundColor: Colors.deepOrangeAccent,
+            backgroundColor: Colors.red,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.inventory),
             label: 'Estoque',
-            backgroundColor: Colors.deepOrangeAccent,
+            backgroundColor: Colors.red,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.edit),
             label: 'Contagem',
-            backgroundColor: Colors.deepOrangeAccent,
+            backgroundColor: Colors.red,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.check_circle),
             label: 'Conferência',
-            backgroundColor: Colors.deepOrangeAccent,
+            backgroundColor: Colors.red,
           ),
         ],
       ),

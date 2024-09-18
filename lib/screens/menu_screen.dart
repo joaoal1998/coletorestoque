@@ -10,7 +10,7 @@ class MenuScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Kinitos Festas'),
         centerTitle: true,
-        backgroundColor: Colors.deepOrangeAccent,
+        backgroundColor: Colors.red,
         foregroundColor: Colors.white,
       ),
       body: Container(
@@ -27,7 +27,7 @@ class MenuScreen extends StatelessWidget {
               style: TextStyle(
                 fontSize: 28,
                 fontWeight: FontWeight.bold,
-                color: Colors.deepOrangeAccent,
+                color: Colors.red,
               ),
               textAlign: TextAlign.center,
             ),
@@ -35,7 +35,7 @@ class MenuScreen extends StatelessWidget {
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 minimumSize: const Size(double.infinity, 50),
-                backgroundColor: Colors.deepOrangeAccent,
+                backgroundColor: Colors.red,
                 foregroundColor: Colors.white,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12),
@@ -54,7 +54,7 @@ class MenuScreen extends StatelessWidget {
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 minimumSize: const Size(double.infinity, 50),
-                backgroundColor: Colors.deepOrangeAccent,
+                backgroundColor: Colors.red,
                 foregroundColor: Colors.white,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12),
@@ -73,7 +73,7 @@ class MenuScreen extends StatelessWidget {
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 minimumSize: const Size(double.infinity, 50),
-                backgroundColor: Colors.deepOrangeAccent,
+                backgroundColor: Colors.red,
                 foregroundColor: Colors.white,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12),
@@ -94,7 +94,7 @@ class MenuScreen extends StatelessWidget {
                 Navigator.pushReplacementNamed(context, '/');
               },
               child: const Text('Sair',
-                  style: TextStyle(color: Colors.deepOrangeAccent)),
+                  style: TextStyle(color: Colors.red)),
             ),
           ],
         ),

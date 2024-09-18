@@ -18,7 +18,7 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Kinitos Festas', textAlign: TextAlign.center),
-        backgroundColor: Colors.deepOrangeAccent,
+        backgroundColor: Colors.red,
         foregroundColor: Colors.white,
         centerTitle: true,
       ),
@@ -41,7 +41,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   style: TextStyle(
                     fontSize: 28,
                     fontWeight: FontWeight.bold,
-                    color: Colors.deepOrangeAccent,
+                    color: Colors.red,
                   ),
                   textAlign: TextAlign.center,
                 ),
@@ -49,12 +49,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 8.0),
                   child: TextField(
-                    cursorColor: Colors.deepOrangeAccent,
+                    cursorColor: Colors.red,
                     controller: _usernameController,
                     decoration: InputDecoration(
                       labelText: 'Usuário',
                       floatingLabelStyle: const TextStyle(
-                        color: Colors.deepOrangeAccent,
+                        color: Colors.red,
                       ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
@@ -63,7 +63,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       fillColor: Colors.white,
                       focusedBorder: OutlineInputBorder(
                         borderSide: const BorderSide(
-                          color: Colors.deepOrangeAccent,
+                          color: Colors.red,
                           width: 2.0,
                         ),
                         borderRadius: BorderRadius.circular(10),
@@ -75,13 +75,13 @@ class _LoginScreenState extends State<LoginScreen> {
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 8.0),
                   child: TextField(
-                    cursorColor: Colors.deepOrangeAccent,
+                    cursorColor: Colors.red,
                     controller: _passwordController,
                     obscureText: _obscurePassword,
                     decoration: InputDecoration(
                       labelText: 'Senha',
                       floatingLabelStyle:
-                          const TextStyle(color: Colors.deepOrangeAccent),
+                          const TextStyle(color: Colors.red),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
@@ -89,7 +89,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       fillColor: Colors.white,
                       focusedBorder: OutlineInputBorder(
                         borderSide: const BorderSide(
-                          color: Colors.deepOrangeAccent,
+                          color: Colors.red,
                           width: 2.0,
                         ),
                         borderRadius: BorderRadius.circular(10),
@@ -99,7 +99,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           _obscurePassword
                               ? Icons.visibility_off
                               : Icons.visibility,
-                          color: Colors.deepOrangeAccent,
+                          color: Colors.red,
                         ),
                         onPressed: () {
                           setState(() {
@@ -117,7 +117,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
-                      backgroundColor: Colors.deepOrangeAccent,
+                      backgroundColor: Colors.red,
                       foregroundColor: Colors.white),
                   onPressed: () {
                     final username = _usernameController.text;
