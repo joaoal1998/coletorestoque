@@ -43,10 +43,8 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: Colors.deepOrangeAccent,
-        unselectedItemColor: Colors.orangeAccent,
-        selectedLabelStyle: const TextStyle(color: Colors.orangeAccent),
-        unselectedLabelStyle: const TextStyle(color: Colors.orangeAccent),
+        selectedItemColor: Colors.yellow,
+        selectedLabelStyle: const TextStyle(color: Colors.yellow),
         showSelectedLabels: true,
         showUnselectedLabels: true,
         currentIndex: paginaAtual,
@@ -58,18 +56,22 @@ class _HomeScreenState extends State<HomeScreen> {
           BottomNavigationBarItem(
             icon: Icon(Icons.menu),
             label: 'Menu',
+            backgroundColor: Colors.deepOrangeAccent,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.inventory),
             label: 'Estoque',
+            backgroundColor: Colors.deepOrangeAccent,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.edit),
             label: 'Contagem',
+            backgroundColor: Colors.deepOrangeAccent,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.check_circle),
             label: 'Conferência',
+            backgroundColor: Colors.deepOrangeAccent,
           ),
         ],
       ),
