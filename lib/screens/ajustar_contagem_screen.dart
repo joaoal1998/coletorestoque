@@ -8,6 +8,7 @@ class AjustarContagemScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Ajustar Contagem', textAlign: TextAlign.center),
+        centerTitle: true,
         backgroundColor: Colors.red,
         foregroundColor: Colors.white,
       ),

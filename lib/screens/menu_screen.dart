@@ -48,7 +48,10 @@ class MenuScreen extends StatelessWidget {
                         builder: (context) =>
                             const HomeScreen(paginaInicial: 1)));
               },
-              child: const Text('Consultar estoque'),
+              child: const Text(
+                'Consultar estoque',
+                style: TextStyle(fontSize: 18),
+              ),
             ),
             const SizedBox(height: 15),
             ElevatedButton(
@@ -67,7 +70,10 @@ class MenuScreen extends StatelessWidget {
                         builder: (context) =>
                             const HomeScreen(paginaInicial: 2)));
               },
-              child: const Text('Ajustar contagem'),
+              child: const Text(
+                'Ajustar contagem',
+                style: TextStyle(fontSize: 18),
+              ),
             ),
             const SizedBox(height: 15),
             ElevatedButton(
@@ -86,7 +92,10 @@ class MenuScreen extends StatelessWidget {
                         builder: (context) =>
                             const HomeScreen(paginaInicial: 3)));
               },
-              child: const Text('Conferência'),
+              child: const Text(
+                'Conferência',
+                style: TextStyle(fontSize: 18),
+              ),
             ),
             const SizedBox(height: 30),
             TextButton(
@@ -94,7 +103,7 @@ class MenuScreen extends StatelessWidget {
                 Navigator.pushReplacementNamed(context, '/');
               },
               child: const Text('Sair',
-                  style: TextStyle(color: Colors.red)),
+                  style: TextStyle(color: Colors.red, fontSize: 18)),
             ),
           ],
         ),

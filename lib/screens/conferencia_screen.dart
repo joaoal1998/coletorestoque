@@ -8,6 +8,7 @@ class ConferenciaScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Conferência', textAlign: TextAlign.center),
+        centerTitle: true,
         backgroundColor: Colors.red,
         foregroundColor: Colors.white,
       ),

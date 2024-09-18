@@ -8,6 +8,7 @@ class ConsultarEstoqueScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Consultar Estoque', textAlign: TextAlign.center),
+        centerTitle: true,
         backgroundColor: Colors.red,
         foregroundColor: Colors.white,
       ),
