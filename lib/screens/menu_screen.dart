@@ -1,9 +1,6 @@
-import 'package:coletorestoque/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'ajustar_contagem_screen.dart';
 import 'conferencia_screen.dart';
-import 'consultar_estoque_screen.dart';
-import 'home_screen.dart';
 
 class MenuScreen extends StatelessWidget {
   const MenuScreen({super.key});
@@ -45,8 +42,7 @@ class MenuScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(12),
                 ),
               ),
-              onPressed: () {
-              },
+              onPressed: () {},
               child: const Text('Consultar estoque'),
             ),
             const SizedBox(height: 15),

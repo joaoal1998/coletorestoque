@@ -1,4 +1,3 @@
-import 'package:coletorestoque/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:coletorestoque/screens/login_screen.dart';
 

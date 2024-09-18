@@ -3,7 +3,6 @@ import 'ajustar_contagem_screen.dart';
 import 'conferencia_screen.dart';
 import 'consultar_estoque_screen.dart';
 import 'menu_screen.dart';
-import 'login_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
