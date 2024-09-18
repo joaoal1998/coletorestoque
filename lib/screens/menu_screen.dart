@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'ajustar_contagem_screen.dart';
-import 'conferencia_screen.dart';
+import 'home_screen.dart';
 
 class MenuScreen extends StatelessWidget {
   const MenuScreen({super.key});
@@ -42,7 +41,12 @@ class MenuScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(12),
                 ),
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const HomeScreen(paginaInicial: 1)));
+              },
               child: const Text('Consultar estoque'),
             ),
             const SizedBox(height: 15),
@@ -56,7 +60,10 @@ class MenuScreen extends StatelessWidget {
                 ),
               ),
               onPressed: () {
-                AjustarContagemScreen();
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const HomeScreen(paginaInicial: 2)));
               },
               child: const Text('Ajustar contagem'),
             ),
@@ -71,7 +78,10 @@ class MenuScreen extends StatelessWidget {
                 ),
               ),
               onPressed: () {
-                ConferenciaScreen();
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const HomeScreen(paginaInicial: 3)));
               },
               child: const Text('Conferência'),
             ),

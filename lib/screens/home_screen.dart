@@ -5,19 +5,22 @@ import 'consultar_estoque_screen.dart';
 import 'menu_screen.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  final int paginaInicial;
+  const HomeScreen({super.key, this.paginaInicial = 0});
+
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int paginaAtual = 0;
+  late int paginaAtual;
   late PageController pc;
 
   @override
   void initState() {
     super.initState();
+    paginaAtual = widget.paginaInicial;
     pc = PageController(initialPage: paginaAtual);
   }
 
