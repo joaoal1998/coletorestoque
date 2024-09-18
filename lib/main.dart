@@ -1,9 +1,6 @@
+import 'package:coletorestoque/screens/home_screen.dart';
 import 'package:flutter/material.dart';
-import 'screens/login_screen.dart';
-import 'screens/menu_screen.dart';
-import 'screens/consultar_estoque_screen.dart';
-import 'screens/ajustar_contagem_screen.dart';
-import 'screens/conferencia_screen.dart';
+import 'package:coletorestoque/screens/login_screen.dart';
 
 void main() {
   runApp(const KinitosFestasApp());
@@ -14,16 +11,9 @@ class KinitosFestasApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Kinitos Festas',
-      initialRoute: '/',
-      routes: {
-        '/': (context) => const LoginScreen(),
-        '/menu': (context) => const MenuScreen(),
-        '/consultarEstoque': (context) => const ConsultarEstoqueScreen(),
-        '/ajustarContagem': (context) => const AjustarContagemScreen(),
-        '/conferencia': (context) => const ConferenciaScreen(),
-      },
+      home: LoginScreen(),
     );
   }
 }

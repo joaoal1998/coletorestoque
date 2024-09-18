@@ -1,4 +1,9 @@
+import 'package:coletorestoque/screens/home_screen.dart';
 import 'package:flutter/material.dart';
+import 'ajustar_contagem_screen.dart';
+import 'conferencia_screen.dart';
+import 'consultar_estoque_screen.dart';
+import 'home_screen.dart';
 
 class MenuScreen extends StatelessWidget {
   const MenuScreen({super.key});
@@ -41,7 +46,6 @@ class MenuScreen extends StatelessWidget {
                 ),
               ),
               onPressed: () {
-                Navigator.pushNamed(context, '/consultarEstoque');
               },
               child: const Text('Consultar estoque'),
             ),
@@ -56,7 +60,7 @@ class MenuScreen extends StatelessWidget {
                 ),
               ),
               onPressed: () {
-                Navigator.pushNamed(context, '/ajustarContagem');
+                AjustarContagemScreen();
               },
               child: const Text('Ajustar contagem'),
             ),
@@ -71,7 +75,7 @@ class MenuScreen extends StatelessWidget {
                 ),
               ),
               onPressed: () {
-                Navigator.pushNamed(context, '/conferencia');
+                ConferenciaScreen();
               },
               child: const Text('Conferência'),
             ),
