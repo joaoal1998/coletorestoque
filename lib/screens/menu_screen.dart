@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../utils/colors.dart';
 import 'home_screen.dart';
 
 class MenuScreen extends StatelessWidget {
@@ -10,24 +11,24 @@ class MenuScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Kinitos Festas'),
         centerTitle: true,
-        backgroundColor: Colors.red,
-        foregroundColor: Colors.white,
+        backgroundColor: Constants.appBarBackground,
+        foregroundColor: Constants.appBarForeground,
       ),
       body: Container(
         padding: const EdgeInsets.symmetric(horizontal: 24.0),
-        color: Colors.yellow[50],
+        color: Constants.background,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             const SizedBox(height: 60),
             Image.asset('assets/estoque.png', height: 250),
             const SizedBox(height: 30),
-            const Text(
+            Text(
               'Menu',
               style: TextStyle(
                 fontSize: 28,
                 fontWeight: FontWeight.bold,
-                color: Colors.red,
+                color: Constants.details,
               ),
               textAlign: TextAlign.center,
             ),
@@ -35,8 +36,8 @@ class MenuScreen extends StatelessWidget {
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 minimumSize: const Size(double.infinity, 50),
-                backgroundColor: Colors.red,
-                foregroundColor: Colors.white,
+                backgroundColor: Constants.buttonBackground,
+                foregroundColor: Constants.buttonForeground,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12),
                 ),
@@ -57,8 +58,8 @@ class MenuScreen extends StatelessWidget {
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 minimumSize: const Size(double.infinity, 50),
-                backgroundColor: Colors.red,
-                foregroundColor: Colors.white,
+                backgroundColor: Constants.buttonBackground,
+                foregroundColor: Constants.buttonForeground,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12),
                 ),
@@ -79,8 +80,8 @@ class MenuScreen extends StatelessWidget {
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 minimumSize: const Size(double.infinity, 50),
-                backgroundColor: Colors.red,
-                foregroundColor: Colors.white,
+                backgroundColor: Constants.buttonBackground,
+                foregroundColor: Constants.buttonForeground,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12),
                 ),
@@ -102,8 +103,8 @@ class MenuScreen extends StatelessWidget {
               onPressed: () {
                 Navigator.pushReplacementNamed(context, '/');
               },
-              child: const Text('Sair',
-                  style: TextStyle(color: Colors.red, fontSize: 18)),
+              child: Text('Sair',
+                  style: TextStyle(color: Constants.details, fontSize: 18)),
             ),
           ],
         ),

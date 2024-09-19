@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../utils/colors.dart';
 
 class ConsultarEstoqueScreen extends StatelessWidget {
   const ConsultarEstoqueScreen({super.key});
@@ -9,11 +10,11 @@ class ConsultarEstoqueScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Consultar Estoque', textAlign: TextAlign.center),
         centerTitle: true,
-        backgroundColor: Colors.red,
-        foregroundColor: Colors.white,
+        backgroundColor: Constants.appBarBackground,
+        foregroundColor: Constants.appBarForeground,
       ),
       body: Container(
-        color: Colors.yellow[50],
+        color: Constants.background,
         child: const Center(
           child: Text('Tela de Consulta de Estoque'),
         ),

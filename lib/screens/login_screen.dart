@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../utils/colors.dart';
 import 'home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -18,13 +19,13 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Kinitos Festas', textAlign: TextAlign.center),
-        backgroundColor: Colors.red,
-        foregroundColor: Colors.white,
+        backgroundColor: Constants.appBarBackground,
+        foregroundColor: Constants.appBarForeground,
         centerTitle: true,
       ),
       body: Container(
         padding: const EdgeInsets.symmetric(horizontal: 24.0),
-        color: Colors.yellow[50],
+        color: Constants.background,
         child: Center(
           child: SingleChildScrollView(
             child: Column(
@@ -36,12 +37,12 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: 250,
                 ),
                 const SizedBox(height: 30),
-                const Text(
+                Text(
                   'Login',
                   style: TextStyle(
                     fontSize: 28,
                     fontWeight: FontWeight.bold,
-                    color: Colors.red,
+                    color: Constants.details,
                   ),
                   textAlign: TextAlign.center,
                 ),
@@ -49,12 +50,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 8.0),
                   child: TextField(
-                    cursorColor: Colors.red,
+                    cursorColor: Constants.details,
                     controller: _usernameController,
                     decoration: InputDecoration(
                       labelText: 'Usuário',
-                      floatingLabelStyle: const TextStyle(
-                        color: Colors.red,
+                      floatingLabelStyle: TextStyle(
+                        color: Constants.details,
                       ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
@@ -62,8 +63,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       filled: true,
                       fillColor: Colors.white,
                       focusedBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                          color: Colors.red,
+                        borderSide: BorderSide(
+                          color: Constants.details,
                           width: 2.0,
                         ),
                         borderRadius: BorderRadius.circular(10),
@@ -75,21 +76,21 @@ class _LoginScreenState extends State<LoginScreen> {
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 8.0),
                   child: TextField(
-                    cursorColor: Colors.red,
+                    cursorColor: Constants.details,
                     controller: _passwordController,
                     obscureText: _obscurePassword,
                     decoration: InputDecoration(
                       labelText: 'Senha',
                       floatingLabelStyle:
-                          const TextStyle(color: Colors.red),
+                          TextStyle(color: Constants.details),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
                       filled: true,
                       fillColor: Colors.white,
                       focusedBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                          color: Colors.red,
+                        borderSide: BorderSide(
+                          color: Constants.details,
                           width: 2.0,
                         ),
                         borderRadius: BorderRadius.circular(10),
@@ -99,7 +100,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           _obscurePassword
                               ? Icons.visibility_off
                               : Icons.visibility,
-                          color: Colors.red,
+                          color: Constants.details,
                         ),
                         onPressed: () {
                           setState(() {
@@ -117,7 +118,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
-                      backgroundColor: Colors.red,
+                      backgroundColor: Constants.buttonBackground,
                       foregroundColor: Colors.white),
                   onPressed: () {
                     final username = _usernameController.text;
