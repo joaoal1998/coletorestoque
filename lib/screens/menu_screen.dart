@@ -15,7 +15,7 @@ class MenuScreen extends StatelessWidget {
         foregroundColor: Constants.appBarForeground,
       ),
       body: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 48.0),
+        padding: const EdgeInsets.symmetric(horizontal: 64.0),
         color: Constants.background,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -35,7 +35,7 @@ class MenuScreen extends StatelessWidget {
             const SizedBox(height: 30),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                minimumSize: const Size(double.infinity, 65),
+                minimumSize: const Size(double.infinity, 50),
                 backgroundColor: Constants.buttonBackground,
                 foregroundColor: Colors.white,
                 shape: RoundedRectangleBorder(
@@ -54,10 +54,10 @@ class MenuScreen extends StatelessWidget {
                 style: TextStyle(fontSize: 18),
               ),
             ),
-            const SizedBox(height: 25),
+            const SizedBox(height: 15),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                minimumSize: const Size(double.infinity, 65),
+                minimumSize: const Size(double.infinity, 50),
                 backgroundColor: Constants.buttonBackground,
                 foregroundColor: Colors.white,
                 shape: RoundedRectangleBorder(
@@ -76,10 +76,10 @@ class MenuScreen extends StatelessWidget {
                 style: TextStyle(fontSize: 18),
               ),
             ),
-            const SizedBox(height: 25),
+            const SizedBox(height: 15),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                minimumSize: const Size(double.infinity, 65),
+                minimumSize: const Size(double.infinity, 50),
                 backgroundColor: Constants.buttonBackground,
                 foregroundColor: Colors.white,
                 shape: RoundedRectangleBorder(
