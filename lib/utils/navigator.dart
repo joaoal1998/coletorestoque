@@ -5,6 +5,8 @@ import '../screens/conferencia_screen.dart';
 import '../screens/consultar_estoque_screen.dart';
 
 class BottomNavigator extends StatefulWidget {
+  const BottomNavigator({super.key});
+
   @override
   State<BottomNavigator> createState() => _BottomNavigatorState();
 }
