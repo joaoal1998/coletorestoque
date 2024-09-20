@@ -21,7 +21,7 @@ class MenuScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             const SizedBox(height: 60),
-            Image.asset('assets/estoque.png', height: 250),
+            Image.asset(Constants.logo, height: 250),
             const SizedBox(height: 30),
             Text(
               'Menu',
