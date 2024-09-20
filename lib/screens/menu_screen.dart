@@ -9,6 +9,8 @@ class MenuScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        shape: LinearBorder.bottom(
+            side: const BorderSide(color: Colors.black, width: 2)),
         title: const Text('Kinitos Festas'),
         centerTitle: true,
         backgroundColor: Constants.appBarBackground,
@@ -35,6 +37,8 @@ class MenuScreen extends StatelessWidget {
             const SizedBox(height: 30),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
+                side: const BorderSide(
+                    style: BorderStyle.solid, color: Colors.black, width: 2),
                 minimumSize: const Size(double.infinity, 50),
                 backgroundColor: Constants.buttonBackground,
                 foregroundColor: Colors.white,
@@ -57,6 +61,8 @@ class MenuScreen extends StatelessWidget {
             const SizedBox(height: 15),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
+                side: const BorderSide(
+                    style: BorderStyle.solid, color: Colors.black, width: 2),
                 minimumSize: const Size(double.infinity, 50),
                 backgroundColor: Constants.buttonBackground,
                 foregroundColor: Colors.white,
@@ -79,6 +85,8 @@ class MenuScreen extends StatelessWidget {
             const SizedBox(height: 15),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
+                side: const BorderSide(
+                    style: BorderStyle.solid, color: Colors.black, width: 2),
                 minimumSize: const Size(double.infinity, 50),
                 backgroundColor: Constants.buttonBackground,
                 foregroundColor: Colors.white,

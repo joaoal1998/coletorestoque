@@ -18,6 +18,8 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        shape: LinearBorder.bottom(
+            side: const BorderSide(color: Colors.black, width: 2)),
         title: const Text('Kinitos Festas', textAlign: TextAlign.center),
         backgroundColor: Constants.appBarBackground,
         foregroundColor: Constants.appBarForeground,
@@ -58,8 +60,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         color: Constants.details,
                       ),
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
+                          borderRadius: BorderRadius.circular(10)),
                       filled: true,
                       fillColor: Colors.white,
                       focusedBorder: OutlineInputBorder(
@@ -81,8 +82,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     obscureText: _obscurePassword,
                     decoration: InputDecoration(
                       labelText: 'Senha',
-                      floatingLabelStyle:
-                          TextStyle(color: Constants.details),
+                      floatingLabelStyle: TextStyle(color: Constants.details),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
@@ -116,6 +116,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   padding: const EdgeInsets.symmetric(horizontal: 175),
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
+                        side: const BorderSide(
+                            style: BorderStyle.solid,
+                            color: Colors.black,
+                            width: 2),
                         padding: const EdgeInsets.symmetric(vertical: 16),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(25),
@@ -133,7 +137,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       } else {
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(
-                            content: Text('Por favor, preencha todos os campos.'),
+                            content:
+                                Text('Por favor, preencha todos os campos.'),
                           ),
                         );
                       }
