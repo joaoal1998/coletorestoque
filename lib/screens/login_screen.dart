@@ -112,33 +112,36 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 const SizedBox(height: 30),
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(vertical: 16),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      backgroundColor: Constants.buttonBackground,
-                      foregroundColor: Colors.white),
-                  onPressed: () {
-                    final username = _usernameController.text;
-                    final password = _passwordController.text;
-                    if (username.isNotEmpty && password.isNotEmpty) {
-                      Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const HomeScreen()));
-                    } else {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(
-                          content: Text('Por favor, preencha todos os campos.'),
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 175),
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        padding: const EdgeInsets.symmetric(vertical: 16),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(25),
                         ),
-                      );
-                    }
-                  },
-                  child: const Text(
-                    'Entrar',
-                    style: TextStyle(fontSize: 18),
+                        backgroundColor: Constants.buttonBackground,
+                        foregroundColor: Colors.white),
+                    onPressed: () {
+                      final username = _usernameController.text;
+                      final password = _passwordController.text;
+                      if (username.isNotEmpty && password.isNotEmpty) {
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const HomeScreen()));
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text('Por favor, preencha todos os campos.'),
+                          ),
+                        );
+                      }
+                    },
+                    child: const Text(
+                      'Entrar',
+                      style: TextStyle(fontSize: 18),
+                    ),
                   ),
                 ),
               ],

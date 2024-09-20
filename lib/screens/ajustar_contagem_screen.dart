@@ -14,7 +14,7 @@ class AjustarContagemScreen extends StatelessWidget {
         foregroundColor: Constants.appBarForeground,
       ),
       body: Container(
-        color: Constants.appBarForeground,
+        color: Constants.background,
         child: const Center(
           child: Text('Tela de Ajuste de Contagem'),
         ),

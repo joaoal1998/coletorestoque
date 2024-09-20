@@ -15,7 +15,7 @@ class MenuScreen extends StatelessWidget {
         foregroundColor: Constants.appBarForeground,
       ),
       body: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 24.0),
+        padding: const EdgeInsets.symmetric(horizontal: 48.0),
         color: Constants.background,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -35,11 +35,11 @@ class MenuScreen extends StatelessWidget {
             const SizedBox(height: 30),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                minimumSize: const Size(double.infinity, 50),
+                minimumSize: const Size(double.infinity, 65),
                 backgroundColor: Constants.buttonBackground,
                 foregroundColor: Colors.white,
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: BorderRadius.circular(25),
                 ),
               ),
               onPressed: () {
@@ -54,14 +54,14 @@ class MenuScreen extends StatelessWidget {
                 style: TextStyle(fontSize: 18),
               ),
             ),
-            const SizedBox(height: 15),
+            const SizedBox(height: 25),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                minimumSize: const Size(double.infinity, 50),
+                minimumSize: const Size(double.infinity, 65),
                 backgroundColor: Constants.buttonBackground,
                 foregroundColor: Colors.white,
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: BorderRadius.circular(25),
                 ),
               ),
               onPressed: () {
@@ -76,14 +76,14 @@ class MenuScreen extends StatelessWidget {
                 style: TextStyle(fontSize: 18),
               ),
             ),
-            const SizedBox(height: 15),
+            const SizedBox(height: 25),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                minimumSize: const Size(double.infinity, 50),
+                minimumSize: const Size(double.infinity, 65),
                 backgroundColor: Constants.buttonBackground,
                 foregroundColor: Colors.white,
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: BorderRadius.circular(25),
                 ),
               ),
               onPressed: () {

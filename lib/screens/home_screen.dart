@@ -23,7 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
     pc = PageController(initialPage: paginaAtual);
   }
 
-  setPaginaAtual(pagina) {
+  void setPaginaAtual(pagina) {
     setState(() {
       paginaAtual = pagina;
     });
