@@ -15,12 +15,40 @@ class ConsultarEstoqueScreen extends StatelessWidget {
         backgroundColor: Constants.appBarBackground,
         foregroundColor: Constants.appBarForeground,
       ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            const DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.red,
+              ),
+              child: Text('Consultar estoque'),
+            ),
+            ListTile(
+              title: const Text('Item 1'),
+              onTap: () {},
+            ),
+            ListTile(
+              title: const Text('Item 2'),
+              onTap: () {},
+            ),
+          ],
+        ),
+      ),
       body: Container(
         color: Constants.background,
         child: const Center(
           child: Text('Tela de Consulta de Estoque'),
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Constants.buttonBackground,
+        foregroundColor: Colors.white,
+        child: const Icon(Icons.search),
+        onPressed: () => {},
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
   }
 }
