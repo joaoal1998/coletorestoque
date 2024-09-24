@@ -27,11 +27,15 @@ class ConsultarEstoqueScreen extends StatelessWidget {
             ),
             ListTile(
               title: const Text('Item 1'),
-              onTap: () {},
+              onTap: () {
+                Navigator.pop(context);
+              },
             ),
             ListTile(
               title: const Text('Item 2'),
-              onTap: () {},
+              onTap: () {
+                Navigator.pop(context);
+              },
             ),
           ],
         ),
