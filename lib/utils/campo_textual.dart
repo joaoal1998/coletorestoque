@@ -2,18 +2,16 @@ import 'package:flutter/material.dart';
 import 'colors.dart';
 
 class TextFieldScreen extends StatefulWidget {
-  final TextEditingController textoController;
   final String textoTip;
 
-  const TextFieldScreen(
-      {super.key, required this.textoController, required this.textoTip});
+  const TextFieldScreen({super.key, required this.textoTip});
 
   @override
   State<TextFieldScreen> createState() => _TextFieldScreenState();
 }
 
 class _TextFieldScreenState extends State<TextFieldScreen> {
-  late TextEditingController campoTexto = widget.textoController;
+  late TextEditingController campoTexto = TextEditingController();
   late String textoDica = widget.textoTip;
 
   @override

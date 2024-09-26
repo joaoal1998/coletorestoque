@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../utils/colors.dart';
-import '../utils/CampoTextual.dart';
+import '../utils/campo_textual.dart';
+import '../utils/campo_menu.dart';
 
 class ConsultarEstoqueScreen extends StatefulWidget {
   const ConsultarEstoqueScreen({super.key});
@@ -10,10 +11,6 @@ class ConsultarEstoqueScreen extends StatefulWidget {
 }
 
 class _ConsultarEstoqueScreenState extends State<ConsultarEstoqueScreen> {
-  final _codigodebarras = TextEditingController();
-  final dropValue = ValueNotifier('');
-  final dropOpcoes = ['Bomboniere', 'Confeitaria', 'Festas'];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,44 +28,35 @@ class _ConsultarEstoqueScreenState extends State<ConsultarEstoqueScreen> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             const SizedBox(height: 40),
-            TextFieldScreen(
-                textoController: _codigodebarras, textoTip: "Código de barras"),
-            const SizedBox(height: 10),
-            ValueListenableBuilder(
-              valueListenable: dropValue,
-              builder: (BuildContext context, String value, _) {
-                return Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 24),
-                  child: DropdownButtonFormField(
-                    decoration: InputDecoration(
-                        labelText: "Departamento",
-                        floatingLabelStyle: TextStyle(
-                          color: Constants.details,
-                        ),
-                        border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
-                        filled: true,
-                        fillColor: Colors.white,
-                        focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Constants.details, width: 2),
-                            borderRadius: BorderRadius.circular(10))),
-                    isExpanded: true,
-                    hint: const Text("Selecione o departamento"),
-                    value: (value.isEmpty) ? null : value,
-                    onChanged: (escolha) => dropValue.value = escolha.toString(),
-                    items: dropOpcoes
-                        .map(
-                          (op) => DropdownMenuItem(
-                            value: op,
-                            child: Text(op),
-                          ),
-                        )
-                        .toList(),
-                  ),
-                );
-              },
-            )
+            Image.asset(Constants.logo, height: 150),
+            const SizedBox(height: 25),
+            const TextFieldScreen(textoTip: "Código de barras"),
+            const SizedBox(height: 25),
+            DropDownScreen(
+              dropOpcoes: const [
+                'Bomboniere',
+                'Confeitaria',
+                'Festas',
+                'Decoração'
+              ],
+              labelCampo: 'Departamento',
+            ),
+            const SizedBox(height: 25),
+            DropDownScreen(
+              dropOpcoes: const ['secao 1', 'secao 2', 'secao 3'],
+              labelCampo: 'Seção',
+            ),
+            const SizedBox(height: 25),
+            DropDownScreen(
+                dropOpcoes: const ['marca 1', 'marca 2'], labelCampo: 'Marca')
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        backgroundColor: Constants.details,
+        foregroundColor: Colors.white,
+        child: const Icon(Icons.search),
       ),
     );
   }
