@@ -37,13 +37,12 @@ class MenuScreen extends StatelessWidget {
             const SizedBox(height: 30),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                side: const BorderSide(
-                    style: BorderStyle.solid, color: Colors.black, width: 2),
+                elevation: 10,
                 minimumSize: const Size(double.infinity, 50),
                 backgroundColor: Constants.buttonBackground,
                 foregroundColor: Colors.white,
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(25),
+                  borderRadius: BorderRadius.circular(15),
                 ),
               ),
               onPressed: () {
@@ -61,13 +60,12 @@ class MenuScreen extends StatelessWidget {
             const SizedBox(height: 15),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                side: const BorderSide(
-                    style: BorderStyle.solid, color: Colors.black, width: 2),
+                elevation: 10,
                 minimumSize: const Size(double.infinity, 50),
                 backgroundColor: Constants.buttonBackground,
                 foregroundColor: Colors.white,
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(25),
+                  borderRadius: BorderRadius.circular(15),
                 ),
               ),
               onPressed: () {
@@ -85,13 +83,12 @@ class MenuScreen extends StatelessWidget {
             const SizedBox(height: 15),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                side: const BorderSide(
-                    style: BorderStyle.solid, color: Colors.black, width: 2),
+                elevation: 10,
                 minimumSize: const Size(double.infinity, 50),
                 backgroundColor: Constants.buttonBackground,
                 foregroundColor: Colors.white,
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(25),
+                  borderRadius: BorderRadius.circular(15),
                 ),
               ),
               onPressed: () {
