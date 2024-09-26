@@ -1,8 +1,20 @@
 import 'package:flutter/material.dart';
 import '../utils/colors.dart';
+import '../utils/CampoTextual.dart';
 
-class ConsultarEstoqueScreen extends StatelessWidget {
+class ConsultarEstoqueScreen extends StatefulWidget {
   const ConsultarEstoqueScreen({super.key});
+
+  @override
+  State<ConsultarEstoqueScreen> createState() => _ConsultarEstoqueScreenState();
+}
+
+class _ConsultarEstoqueScreenState extends State<ConsultarEstoqueScreen> {
+  final _codigodebarras = TextEditingController();
+  final _marca = TextEditingController();
+  final _departamento = TextEditingController();
+  final _secao = TextEditingController();
+  final _fornecedor = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -15,44 +27,29 @@ class ConsultarEstoqueScreen extends StatelessWidget {
         backgroundColor: Constants.appBarBackground,
         foregroundColor: Constants.appBarForeground,
       ),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
+      body: Container(
+        color: Constants.background,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const DrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.red,
-              ),
-              child: Text('Consultar estoque'),
-            ),
-            ListTile(
-              title: const Text('Item 1'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: const Text('Item 2'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
+            const SizedBox(height: 40),
+            TextFieldScreen(
+                textoController: _codigodebarras, textoTip: "Código de barras"),
+            const SizedBox(height: 10),
+            TextFieldScreen(
+                textoController: _departamento, textoTip: "Departamento"),
+            const SizedBox(height: 10),
+            TextFieldScreen(
+                textoController: _secao, textoTip: "Seção"),
+            const SizedBox(height: 10),
+            TextFieldScreen(
+                textoController: _fornecedor, textoTip: "Fornecedor"),
+            const SizedBox(height: 10),
+            TextFieldScreen(
+                textoController: _marca, textoTip: "Marca"),
           ],
         ),
       ),
-      body: Container(
-        color: Constants.background,
-        child: const Center(
-          child: Text('Tela de Consulta de Estoque'),
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Constants.buttonBackground,
-        foregroundColor: Colors.white,
-        child: const Icon(Icons.search),
-        onPressed: () => {},
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
   }
 }
