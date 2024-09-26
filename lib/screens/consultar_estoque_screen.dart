@@ -28,7 +28,7 @@ class _ConsultarEstoqueScreenState extends State<ConsultarEstoqueScreen> {
       body: Container(
         color: Constants.background,
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             const SizedBox(height: 40),
             TextFieldScreen(
@@ -37,18 +37,33 @@ class _ConsultarEstoqueScreenState extends State<ConsultarEstoqueScreen> {
             ValueListenableBuilder(
               valueListenable: dropValue,
               builder: (BuildContext context, String value, _) {
-                return DropdownButton(
-                  hint: const Text("Selecione o departamento"),
-                  value: (value.isEmpty) ? null : value,
-                  onChanged: (escolha) => dropValue.value = escolha.toString(),
-                  items: dropOpcoes
-                      .map(
-                        (op) => DropdownMenuItem(
-                          value: op,
-                          child: Text(op),
+                return Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 24),
+                  child: DropdownButtonFormField(
+                    decoration: InputDecoration(
+                        labelText: "Departamento",
+                        floatingLabelStyle: TextStyle(
+                          color: Constants.details,
                         ),
-                      )
-                      .toList(),
+                        border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+                        filled: true,
+                        fillColor: Colors.white,
+                        focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Constants.details, width: 2),
+                            borderRadius: BorderRadius.circular(10))),
+                    isExpanded: true,
+                    hint: const Text("Selecione o departamento"),
+                    value: (value.isEmpty) ? null : value,
+                    onChanged: (escolha) => dropValue.value = escolha.toString(),
+                    items: dropOpcoes
+                        .map(
+                          (op) => DropdownMenuItem(
+                            value: op,
+                            child: Text(op),
+                          ),
+                        )
+                        .toList(),
+                  ),
                 );
               },
             )
