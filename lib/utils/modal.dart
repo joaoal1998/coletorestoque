@@ -13,14 +13,16 @@ class TransactionForm extends StatefulWidget {
 class _TransactionFormState extends State<TransactionForm> {
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 6,
-      color: Constants.background,
+    return Container(
+      decoration: BoxDecoration(
+          color: Constants.background, borderRadius: BorderRadius.circular(15)),
       child: Padding(
         padding: const EdgeInsets.all(8),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            const SizedBox(height: 25),
+            const Text("Informe os filtros"),
             const SizedBox(height: 25),
             const TextFieldScreen(textoTip: "Código de barras"),
             const SizedBox(height: 25),
@@ -45,7 +47,20 @@ class _TransactionFormState extends State<TransactionForm> {
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                ElevatedButton(onPressed: () {}, child: const Text('Pesquisar'))
+                ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        side: const BorderSide(
+                            style: BorderStyle.solid,
+                            color: Colors.black,
+                            width: 2),
+                        padding: const EdgeInsets.symmetric(horizontal: 16),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        backgroundColor: Constants.buttonBackground,
+                        foregroundColor: Colors.white),
+                    onPressed: () {},
+                    child: const Text('Pesquisar'))
               ],
             )
           ],
