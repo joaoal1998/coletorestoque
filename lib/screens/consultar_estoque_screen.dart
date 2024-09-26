@@ -11,10 +11,8 @@ class ConsultarEstoqueScreen extends StatefulWidget {
 
 class _ConsultarEstoqueScreenState extends State<ConsultarEstoqueScreen> {
   final _codigodebarras = TextEditingController();
-  final _marca = TextEditingController();
-  final _departamento = TextEditingController();
-  final _secao = TextEditingController();
-  final _fornecedor = TextEditingController();
+  final dropValue = ValueNotifier('');
+  final dropOpcoes = ['Bomboniere', 'Confeitaria', 'Festas'];
 
   @override
   Widget build(BuildContext context) {
@@ -36,17 +34,24 @@ class _ConsultarEstoqueScreenState extends State<ConsultarEstoqueScreen> {
             TextFieldScreen(
                 textoController: _codigodebarras, textoTip: "Código de barras"),
             const SizedBox(height: 10),
-            TextFieldScreen(
-                textoController: _departamento, textoTip: "Departamento"),
-            const SizedBox(height: 10),
-            TextFieldScreen(
-                textoController: _secao, textoTip: "Seção"),
-            const SizedBox(height: 10),
-            TextFieldScreen(
-                textoController: _fornecedor, textoTip: "Fornecedor"),
-            const SizedBox(height: 10),
-            TextFieldScreen(
-                textoController: _marca, textoTip: "Marca"),
+            ValueListenableBuilder(
+              valueListenable: dropValue,
+              builder: (BuildContext context, String value, _) {
+                return DropdownButton(
+                  hint: const Text("Selecione o departamento"),
+                  value: (value.isEmpty) ? null : value,
+                  onChanged: (escolha) => dropValue.value = escolha.toString(),
+                  items: dropOpcoes
+                      .map(
+                        (op) => DropdownMenuItem(
+                          value: op,
+                          child: Text(op),
+                        ),
+                      )
+                      .toList(),
+                );
+              },
+            )
           ],
         ),
       ),
