@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../utils/colors.dart';
-import '../utils/campo_textual.dart';
-import '../utils/campo_menu.dart';
+import '../utils/modal.dart';
 
 class ConsultarEstoqueScreen extends StatefulWidget {
   const ConsultarEstoqueScreen({super.key});
@@ -11,6 +10,15 @@ class ConsultarEstoqueScreen extends StatefulWidget {
 }
 
 class _ConsultarEstoqueScreenState extends State<ConsultarEstoqueScreen> {
+  _openTransactionFormModal(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      builder: (_) {
+        return const TransactionForm();
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,31 +37,11 @@ class _ConsultarEstoqueScreenState extends State<ConsultarEstoqueScreen> {
           children: [
             const SizedBox(height: 40),
             Image.asset(Constants.logo, height: 150),
-            const SizedBox(height: 25),
-            const TextFieldScreen(textoTip: "Código de barras"),
-            const SizedBox(height: 25),
-            DropDownScreen(
-              dropOpcoes: const [
-                'Bomboniere',
-                'Confeitaria',
-                'Festas',
-                'Decoração'
-              ],
-              labelCampo: 'Departamento',
-            ),
-            const SizedBox(height: 25),
-            DropDownScreen(
-              dropOpcoes: const ['secao 1', 'secao 2', 'secao 3'],
-              labelCampo: 'Seção',
-            ),
-            const SizedBox(height: 25),
-            DropDownScreen(
-                dropOpcoes: const ['marca 1', 'marca 2'], labelCampo: 'Marca')
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () => _openTransactionFormModal(context),
         backgroundColor: Constants.details,
         foregroundColor: Colors.white,
         child: const Icon(Icons.search),
