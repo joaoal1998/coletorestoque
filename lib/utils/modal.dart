@@ -49,14 +49,16 @@ class _TransactionFormState extends State<TransactionForm> {
               children: [
                 ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      elevation: 10,
+                        elevation: 10,
                         padding: const EdgeInsets.symmetric(horizontal: 16),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
                         ),
                         backgroundColor: Constants.buttonBackground,
                         foregroundColor: Colors.white),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
                     child: const Text('Pesquisar'))
               ],
             )
