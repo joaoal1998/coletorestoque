@@ -49,10 +49,7 @@ class _TransactionFormState extends State<TransactionForm> {
               children: [
                 ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                        side: const BorderSide(
-                            style: BorderStyle.solid,
-                            color: Colors.black,
-                            width: 2),
+                      elevation: 10,
                         padding: const EdgeInsets.symmetric(horizontal: 16),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
