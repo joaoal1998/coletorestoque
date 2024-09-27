@@ -23,8 +23,6 @@ class _ConsultarEstoqueScreenState extends State<ConsultarEstoqueScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        shape: LinearBorder.bottom(
-            side: const BorderSide(color: Colors.black, width: 2)),
         title: const Text('Consultar Estoque', textAlign: TextAlign.center),
         centerTitle: true,
         backgroundColor: Constants.appBarBackground,

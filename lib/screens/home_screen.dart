@@ -42,46 +42,40 @@ class _HomeScreenState extends State<HomeScreen> {
           ConferenciaScreen(),
         ],
       ),
-      bottomNavigationBar: Container(
-        decoration: ShapeDecoration(
-            shape: LinearBorder.top(
-                side: const BorderSide(color: Colors.black, width: 2))),
-        child: BottomNavigationBar(
-          selectedItemColor: Colors.yellow,
-          selectedLabelStyle: const TextStyle(color: Colors.yellow,fontSize: 15),
-          showSelectedLabels: true,
-          showUnselectedLabels: true,
-          currentIndex: paginaAtual,
-          onTap: (pagina) {
-            pc.animateToPage(pagina,
-                duration: const Duration(milliseconds: 400),
-                curve: Curves.ease);
-          },
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.menu,
-              ),
-              label: 'Menu',
-              backgroundColor: Colors.red,
+      bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: Colors.yellow,
+        selectedLabelStyle: const TextStyle(color: Colors.yellow, fontSize: 15),
+        showSelectedLabels: true,
+        showUnselectedLabels: true,
+        currentIndex: paginaAtual,
+        onTap: (pagina) {
+          pc.animateToPage(pagina,
+              duration: const Duration(milliseconds: 400), curve: Curves.ease);
+        },
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.menu,
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.inventory),
-              label: 'Estoque',
-              backgroundColor: Colors.red,
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.edit),
-              label: 'Contagem',
-              backgroundColor: Colors.red,
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.check_circle),
-              label: 'Conferência',
-              backgroundColor: Colors.red,
-            ),
-          ],
-        ),
+            label: 'Menu',
+            backgroundColor: Colors.red,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.inventory),
+            label: 'Estoque',
+            backgroundColor: Colors.red,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.edit),
+            label: 'Contagem',
+            backgroundColor: Colors.red,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.check_circle),
+            label: 'Conferência',
+            backgroundColor: Colors.red,
+          ),
+        ],
       ),
     );
   }

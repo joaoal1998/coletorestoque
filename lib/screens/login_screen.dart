@@ -18,8 +18,6 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        shape: LinearBorder.bottom(
-            side: const BorderSide(color: Colors.black, width: 2)),
         title: const Text('Kinitos Festas', textAlign: TextAlign.center),
         backgroundColor: Constants.appBarBackground,
         foregroundColor: Constants.appBarForeground,
