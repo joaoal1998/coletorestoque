@@ -132,7 +132,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ? null
                         : () async {
                             setState(() {
-                              _isLoading = true; // Inicia o carregamento
+                              _isLoading = true;
                             });
 
                             final username = _usernameController.text;
@@ -141,16 +141,11 @@ class _LoginScreenState extends State<LoginScreen> {
                             try {
                               await signIn(username, password);
 
-                              if (pb.authStore.isValid) {
-                                Navigator.pushReplacement(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => const HomeScreen()),
-                                );
-                              } else {
-                                throw Exception(
-                                    'Login inválido'); // Lança uma exceção se o login falhar
-                              }
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const HomeScreen()),
+                              );
                             } catch (e) {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
@@ -160,13 +155,13 @@ class _LoginScreenState extends State<LoginScreen> {
                               );
                             } finally {
                               setState(() {
-                                _isLoading =
-                                    false; // Para o carregamento, independentemente do resultado
+                                _isLoading = false;
                               });
                             }
                           },
                     child: _isLoading
                         ? const CircularProgressIndicator(
+                            backgroundColor: Colors.red,
                             valueColor:
                                 AlwaysStoppedAnimation<Color>(Colors.white))
                         : const Text(
