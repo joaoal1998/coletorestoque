@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../utils/colors.dart';
 import 'home_screen.dart';
+import 'package:pocketbase/pocketbase.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -13,6 +14,12 @@ class _LoginScreenState extends State<LoginScreen> {
   final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();
   bool _obscurePassword = true;
+  final pb = PocketBase('http://192.168.169.3:8091');
+  bool _isLoading = false;
+
+  Future<void> signIn(username, password) async {
+    await pb.collection('users').authWithPassword(username, password);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -114,34 +121,58 @@ class _LoginScreenState extends State<LoginScreen> {
                   padding: const EdgeInsets.symmetric(horizontal: 175),
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      elevation: 10,
+                        elevation: 10,
                         padding: const EdgeInsets.symmetric(vertical: 16),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
                         ),
                         backgroundColor: Constants.buttonBackground,
                         foregroundColor: Colors.white),
-                    onPressed: () {
-                      final username = _usernameController.text;
-                      final password = _passwordController.text;
-                      if (username.isNotEmpty && password.isNotEmpty) {
-                        Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const HomeScreen()));
-                      } else {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                            content:
-                                Text('Por favor, preencha todos os campos.'),
+                    onPressed: _isLoading
+                        ? null
+                        : () async {
+                            setState(() {
+                              _isLoading = true; // Inicia o carregamento
+                            });
+
+                            final username = _usernameController.text;
+                            final password = _passwordController.text;
+
+                            try {
+                              await signIn(username, password);
+
+                              if (pb.authStore.isValid) {
+                                Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const HomeScreen()),
+                                );
+                              } else {
+                                throw Exception(
+                                    'Login inválido'); // Lança uma exceção se o login falhar
+                              }
+                            } catch (e) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  content: Text(
+                                      'Informação de login e/ou senha errados'),
+                                ),
+                              );
+                            } finally {
+                              setState(() {
+                                _isLoading =
+                                    false; // Para o carregamento, independentemente do resultado
+                              });
+                            }
+                          },
+                    child: _isLoading
+                        ? const CircularProgressIndicator(
+                            valueColor:
+                                AlwaysStoppedAnimation<Color>(Colors.white))
+                        : const Text(
+                            'Entrar',
+                            style: TextStyle(fontSize: 18),
                           ),
-                        );
-                      }
-                    },
-                    child: const Text(
-                      'Entrar',
-                      style: TextStyle(fontSize: 18),
-                    ),
                   ),
                 ),
               ],
