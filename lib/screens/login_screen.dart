@@ -14,7 +14,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();
   bool _obscurePassword = true;
-  final pb = PocketBase('http://192.168.169.3:8091');
+  final pb = PocketBase('https://pb.kinitos.cloud/');
   bool _isLoading = false;
 
   Future<void> signIn(username, password) async {
