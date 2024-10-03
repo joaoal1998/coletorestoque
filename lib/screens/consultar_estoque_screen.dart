@@ -33,7 +33,7 @@ class _ConsultarEstoqueScreenState extends State<ConsultarEstoqueScreen> {
           child: Padding(
             padding: const EdgeInsets.all(15.0),
             child: Table(
-              border: TableBorder.all(color: Colors.white),
+              border: TableBorder.all(color: Colors.black),
               defaultVerticalAlignment: TableCellVerticalAlignment.middle,
               children: [
                 const TableRow(
@@ -62,7 +62,7 @@ class _ConsultarEstoqueScreenState extends State<ConsultarEstoqueScreen> {
                       ),
                     ]),
                 ...List.generate(
-                  200,
+                  50,
                   (index) => const TableRow(
                     children: [
                       TableCell(
