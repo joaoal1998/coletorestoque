@@ -28,14 +28,70 @@ class _ConsultarEstoqueScreenState extends State<ConsultarEstoqueScreen> {
         backgroundColor: Constants.appBarBackground,
         foregroundColor: Constants.appBarForeground,
       ),
-      body: Container(
-        color: Constants.background,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            const SizedBox(height: 40),
-            Image.asset(Constants.logo, height: 150),
-          ],
+      body: SingleChildScrollView(
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: Table(
+              border: TableBorder.all(color: Colors.white),
+              defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+              children: [
+                const TableRow(
+                    decoration: BoxDecoration(color: Colors.red),
+                    children: [
+                      TableCell(
+                        verticalAlignment: TableCellVerticalAlignment.middle,
+                        child: Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Text('Titulo 1'),
+                        ),
+                      ),
+                      TableCell(
+                        verticalAlignment: TableCellVerticalAlignment.middle,
+                        child: Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Text('Titulo 2'),
+                        ),
+                      ),
+                      TableCell(
+                        verticalAlignment: TableCellVerticalAlignment.middle,
+                        child: Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Text('Titulo 3'),
+                        ),
+                      ),
+                    ]),
+                ...List.generate(
+                  200,
+                  (index) => const TableRow(
+                    children: [
+                      TableCell(
+                        verticalAlignment: TableCellVerticalAlignment.middle,
+                        child: Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Text('Célula 1'),
+                        ),
+                      ),
+                      TableCell(
+                        verticalAlignment: TableCellVerticalAlignment.middle,
+                        child: Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Text('Célula 2'),
+                        ),
+                      ),
+                      TableCell(
+                        verticalAlignment: TableCellVerticalAlignment.middle,
+                        child: Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Text('Célula 3'),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
