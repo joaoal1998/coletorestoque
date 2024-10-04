@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../utils/colors.dart';
 import '../utils/modal.dart';
 
 class ConsultarEstoqueScreen extends StatefulWidget {
@@ -25,8 +24,8 @@ class _ConsultarEstoqueScreenState extends State<ConsultarEstoqueScreen> {
       appBar: AppBar(
         title: const Text('Consultar Estoque', textAlign: TextAlign.center),
         centerTitle: true,
-        backgroundColor: Constants.appBarBackground,
-        foregroundColor: Constants.appBarForeground,
+        backgroundColor: Colors.red,
+        foregroundColor: Colors.white,
       ),
       body: SingleChildScrollView(
         child: Center(
@@ -96,7 +95,7 @@ class _ConsultarEstoqueScreenState extends State<ConsultarEstoqueScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => _openTransactionFormModal(context),
-        backgroundColor: Constants.details,
+        backgroundColor: Colors.red,
         foregroundColor: Colors.white,
         child: const Icon(Icons.search),
       ),

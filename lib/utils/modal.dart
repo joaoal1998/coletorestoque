@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../utils/colors.dart';
 import 'package:pocketbase/pocketbase.dart';
 
 class TransactionForm extends StatefulWidget {
@@ -29,7 +28,7 @@ class _TransactionFormState extends State<TransactionForm> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          color: Constants.background, borderRadius: BorderRadius.circular(15)),
+          color: Colors.yellow[50], borderRadius: BorderRadius.circular(15)),
       child: Padding(
         padding: const EdgeInsets.all(8),
         child: Column(
@@ -43,13 +42,13 @@ class _TransactionFormState extends State<TransactionForm> {
                   const EdgeInsets.symmetric(vertical: 8.0, horizontal: 24),
               child: TextField(
                 controller: codigoDeBarras,
-                cursorColor: Constants.details,
+                cursorColor: Colors.red,
                 keyboardType:
                     const TextInputType.numberWithOptions(decimal: true),
                 decoration: InputDecoration(
                     labelText: 'Código de barras',
-                    floatingLabelStyle: TextStyle(
-                      color: Constants.details,
+                    floatingLabelStyle: const TextStyle(
+                      color: Colors.red,
                     ),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10)),
@@ -57,7 +56,7 @@ class _TransactionFormState extends State<TransactionForm> {
                     fillColor: Colors.white,
                     focusedBorder: OutlineInputBorder(
                         borderSide:
-                            BorderSide(color: Constants.details, width: 2),
+                            const BorderSide(color: Colors.red, width: 2),
                         borderRadius: BorderRadius.circular(10))),
               ),
             ),
@@ -69,8 +68,8 @@ class _TransactionFormState extends State<TransactionForm> {
                   padding: const EdgeInsets.symmetric(horizontal: 24),
                   child: DropdownButtonFormField(
                     decoration: InputDecoration(
-                        floatingLabelStyle: TextStyle(
-                          color: Constants.details,
+                        floatingLabelStyle: const TextStyle(
+                          color: Colors.red,
                         ),
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10)),
@@ -78,7 +77,7 @@ class _TransactionFormState extends State<TransactionForm> {
                         fillColor: Colors.white,
                         focusedBorder: OutlineInputBorder(
                             borderSide:
-                                BorderSide(color: Constants.details, width: 2),
+                                const BorderSide(color:Colors.red, width: 2),
                             borderRadius: BorderRadius.circular(10))),
                     isExpanded: true,
                     hint: const Text('Departamento'),
@@ -106,8 +105,8 @@ class _TransactionFormState extends State<TransactionForm> {
                   padding: const EdgeInsets.symmetric(horizontal: 24),
                   child: DropdownButtonFormField(
                     decoration: InputDecoration(
-                        floatingLabelStyle: TextStyle(
-                          color: Constants.details,
+                        floatingLabelStyle: const TextStyle(
+                          color:Colors.red,
                         ),
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10)),
@@ -115,7 +114,7 @@ class _TransactionFormState extends State<TransactionForm> {
                         fillColor: Colors.white,
                         focusedBorder: OutlineInputBorder(
                             borderSide:
-                                BorderSide(color: Constants.details, width: 2),
+                                const BorderSide(color: Colors.red, width: 2),
                             borderRadius: BorderRadius.circular(10))),
                     isExpanded: true,
                     hint: const Text('Seção'),
@@ -143,8 +142,8 @@ class _TransactionFormState extends State<TransactionForm> {
                   padding: const EdgeInsets.symmetric(horizontal: 24),
                   child: DropdownButtonFormField(
                     decoration: InputDecoration(
-                        floatingLabelStyle: TextStyle(
-                          color: Constants.details,
+                        floatingLabelStyle: const TextStyle(
+                          color: Colors.red,
                         ),
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10)),
@@ -152,7 +151,7 @@ class _TransactionFormState extends State<TransactionForm> {
                         fillColor: Colors.white,
                         focusedBorder: OutlineInputBorder(
                             borderSide:
-                                BorderSide(color: Constants.details, width: 2),
+                                const BorderSide(color: Colors.red, width: 2),
                             borderRadius: BorderRadius.circular(10))),
                     isExpanded: true,
                     hint: const Text('Marca'),
@@ -183,7 +182,7 @@ class _TransactionFormState extends State<TransactionForm> {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        backgroundColor: Constants.buttonBackground,
+                        backgroundColor: Colors.red,
                         foregroundColor: Colors.white),
                     onPressed: () {
                       busca();

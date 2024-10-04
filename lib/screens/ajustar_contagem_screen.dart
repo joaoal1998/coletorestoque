@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../utils/colors.dart';
 
 class AjustarContagemScreen extends StatelessWidget {
   const AjustarContagemScreen({super.key});
@@ -10,11 +9,11 @@ class AjustarContagemScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Ajustar Contagem', textAlign: TextAlign.center),
         centerTitle: true,
-        backgroundColor: Constants.appBarBackground,
-        foregroundColor: Constants.appBarForeground,
+        backgroundColor: Colors.red,
+        foregroundColor: Colors.white,
       ),
       body: Container(
-        color: Constants.background,
+        color: Colors.red,
         child: const Center(
           child: Text('Tela de Ajuste de Contagem'),
         ),
