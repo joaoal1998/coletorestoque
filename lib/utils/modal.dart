@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../utils/colors.dart';
+import 'package:pocketbase/pocketbase.dart';
 
 class TransactionForm extends StatefulWidget {
   const TransactionForm({super.key});
@@ -10,7 +11,19 @@ class TransactionForm extends StatefulWidget {
 
 class _TransactionFormState extends State<TransactionForm> {
   late TextEditingController codigoDeBarras = TextEditingController();
-  final dropValue = ValueNotifier('');
+  final departamento = ValueNotifier('');
+  final secao = ValueNotifier('');
+  final marca = ValueNotifier('');
+
+  final pb = PocketBase('http://192.168.169.3:8091');
+
+  Future<void> busca() async {
+    final resultList = await pb.collection('embalagens').getList(
+          filter:
+              'descricao = "${departamento.value}" && codauxiliar = "${codigoDeBarras.text}"',
+        );
+    print(resultList);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +63,7 @@ class _TransactionFormState extends State<TransactionForm> {
             ),
             const SizedBox(height: 25),
             ValueListenableBuilder(
-              valueListenable: dropValue,
+              valueListenable: departamento,
               builder: (BuildContext context, String value, _) {
                 return Container(
                   padding: const EdgeInsets.symmetric(horizontal: 24),
@@ -71,9 +84,9 @@ class _TransactionFormState extends State<TransactionForm> {
                     hint: const Text('Departamento'),
                     value: (value.isEmpty) ? null : value,
                     onChanged: (escolha) {
-                      dropValue.value = escolha.toString();
+                      departamento.value = escolha.toString();
                     },
-                    items: ['Bomboniere', 'Confeitaria', 'Festas', 'Decoração']
+                    items: ['maizena', 'Confeitaria', 'Festas', 'Decoração']
                         .map(
                           (op) => DropdownMenuItem(
                             value: op,
@@ -87,7 +100,7 @@ class _TransactionFormState extends State<TransactionForm> {
             ),
             const SizedBox(height: 25),
             ValueListenableBuilder(
-              valueListenable: dropValue,
+              valueListenable: secao,
               builder: (BuildContext context, String value, _) {
                 return Container(
                   padding: const EdgeInsets.symmetric(horizontal: 24),
@@ -108,7 +121,7 @@ class _TransactionFormState extends State<TransactionForm> {
                     hint: const Text('Seção'),
                     value: (value.isEmpty) ? null : value,
                     onChanged: (escolha) {
-                      dropValue.value = escolha.toString();
+                      secao.value = escolha.toString();
                     },
                     items: ['secao 1', 'secao 2', 'secao 3']
                         .map(
@@ -124,7 +137,7 @@ class _TransactionFormState extends State<TransactionForm> {
             ),
             const SizedBox(height: 25),
             ValueListenableBuilder(
-              valueListenable: dropValue,
+              valueListenable: marca,
               builder: (BuildContext context, String value, _) {
                 return Container(
                   padding: const EdgeInsets.symmetric(horizontal: 24),
@@ -145,7 +158,7 @@ class _TransactionFormState extends State<TransactionForm> {
                     hint: const Text('Marca'),
                     value: (value.isEmpty) ? null : value,
                     onChanged: (escolha) {
-                      dropValue.value = escolha.toString();
+                      marca.value = escolha.toString();
                     },
                     items: ['marca 1', 'marca 2', 'marca 3']
                         .map(
@@ -173,6 +186,8 @@ class _TransactionFormState extends State<TransactionForm> {
                         backgroundColor: Constants.buttonBackground,
                         foregroundColor: Colors.white),
                     onPressed: () {
+                      busca();
+                      busca;
                       Navigator.of(context).pop();
                     },
                     child: const Text('Pesquisar'))
