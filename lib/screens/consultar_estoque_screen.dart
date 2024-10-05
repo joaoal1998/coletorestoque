@@ -62,27 +62,27 @@ class _ConsultarEstoqueScreenState extends State<ConsultarEstoqueScreen> {
                     ]),
                 ...List.generate(
                   50,
-                  (index) => const TableRow(
+                  (index) => TableRow(
                     children: [
                       TableCell(
                         verticalAlignment: TableCellVerticalAlignment.middle,
                         child: Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Text('Célula 1'),
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(TransactionData.codAuxiliar as String),
                         ),
                       ),
                       TableCell(
                         verticalAlignment: TableCellVerticalAlignment.middle,
                         child: Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Text('Célula 2'),
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(TransactionData.descricao as String),
                         ),
                       ),
                       TableCell(
                         verticalAlignment: TableCellVerticalAlignment.middle,
                         child: Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Text('Célula 3'),
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(TransactionData.embalagem as String),
                         ),
                       ),
                     ],

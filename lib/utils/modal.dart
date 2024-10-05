@@ -9,6 +9,12 @@ class TransactionForm extends StatefulWidget {
   State<TransactionForm> createState() => _TransactionFormState();
 }
 
+class TransactionData {
+  static int? codAuxiliar;
+  static String? descricao;
+  static String? embalagem;
+}
+
 class _TransactionFormState extends State<TransactionForm> {
   late TextEditingController codigoDeBarras = TextEditingController();
   final departamento = ValueNotifier('');
@@ -26,12 +32,12 @@ class _TransactionFormState extends State<TransactionForm> {
     String jsonString = resultList.toString();
     Map<String, dynamic> data = json.decode(jsonString);
     Map<String, dynamic> item = data['items'][0];
-    int codAuxiliar = item['codauxiliar'];
-    String descricao = item['descricao'];
-    String embalagem = item['embalagem'];
-    print('CodAuxiliar: $codAuxiliar');
+    TransactionData.codAuxiliar = item['codauxiliar'];
+    TransactionData.descricao = item['descricao'];
+    TransactionData.embalagem = item['embalagem'];
+    /*print('CodAuxiliar: $codAuxiliar');
     print('Descricao: $descricao');
-    print('Embalagem: $embalagem');
+    print('Embalagem: $embalagem');*/
   }
 
   @override
