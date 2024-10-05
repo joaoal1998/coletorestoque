@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pocketbase/pocketbase.dart';
+import 'dart:convert';
 
 class TransactionForm extends StatefulWidget {
   const TransactionForm({super.key});
@@ -20,9 +21,17 @@ class _TransactionFormState extends State<TransactionForm> {
     final resultList = await pb.collection('embalagens').getList(
           filter:
               'descricao = "${departamento.value}" && codauxiliar = "${codigoDeBarras.text}"',
-          fields: 'descricao,codauxiliar',
+          fields: 'descricao,codauxiliar,embalagem',
         );
-    print(resultList);
+    String jsonString = resultList.toString();
+    Map<String, dynamic> data = json.decode(jsonString);
+    Map<String, dynamic> item = data['items'][0];
+    int codAuxiliar = item['codauxiliar'];
+    String descricao = item['descricao'];
+    String embalagem = item['embalagem'];
+    print('CodAuxiliar: $codAuxiliar');
+    print('Descricao: $descricao');
+    print('Embalagem: $embalagem');
   }
 
   @override
