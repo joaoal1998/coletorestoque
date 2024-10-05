@@ -62,27 +62,27 @@ class _ConsultarEstoqueScreenState extends State<ConsultarEstoqueScreen> {
                     ]),
                 ...List.generate(
                   50,
-                  (index) => TableRow(
+                  (index) => const TableRow(
                     children: [
                       TableCell(
                         verticalAlignment: TableCellVerticalAlignment.middle,
                         child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(TransactionData.codAuxiliar as String),
+                          padding: EdgeInsets.all(8.0),
+                          child: Text('TransactionData.codAuxiliar as String'),
                         ),
                       ),
                       TableCell(
                         verticalAlignment: TableCellVerticalAlignment.middle,
                         child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(TransactionData.descricao as String),
+                          padding: EdgeInsets.all(8.0),
+                          child: Text('TransactionData.descricao as String'),
                         ),
                       ),
                       TableCell(
                         verticalAlignment: TableCellVerticalAlignment.middle,
                         child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(TransactionData.embalagem as String),
+                          padding: EdgeInsets.all(8.0),
+                          child: Text('TransactionData.embalagem as String'),
                         ),
                       ),
                     ],
@@ -94,7 +94,7 @@ class _ConsultarEstoqueScreenState extends State<ConsultarEstoqueScreen> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => _openTransactionFormModal(context),
+        onPressed: () => print(TransactionData.embalagem),//_openTransactionFormModal(context),
         backgroundColor: Colors.red,
         foregroundColor: Colors.white,
         child: const Icon(Icons.search),
