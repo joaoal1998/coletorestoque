@@ -94,7 +94,7 @@ class _ConsultarEstoqueScreenState extends State<ConsultarEstoqueScreen> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => print(TransactionData.embalagem),//_openTransactionFormModal(context),
+        onPressed: () => _openTransactionFormModal(context),
         backgroundColor: Colors.red,
         foregroundColor: Colors.white,
         child: const Icon(Icons.search),
