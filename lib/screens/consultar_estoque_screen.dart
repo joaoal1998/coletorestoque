@@ -36,110 +36,80 @@ class _ConsultarEstoqueScreenState extends State<ConsultarEstoqueScreen> {
         backgroundColor: Colors.red,
         foregroundColor: Colors.white,
       ),
-      body: SingleChildScrollView(
-        child: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(15.0),
-            child: Table(
-                border: TableBorder.all(color: Colors.black),
-                defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-                children: [
-                  if (resultados.isEmpty) ...[
-                    const TableRow(
-                      children: [
-                        TableCell(
-                          verticalAlignment: TableCellVerticalAlignment.middle,
-                          child: Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Text('Nenhuma Transação Cadastrada!'),
-                          ),
-                        ),
-                      ],
-                    ),
-                    TableRow(
-                      children: [
-                        TableCell(
-                          verticalAlignment: TableCellVerticalAlignment.middle,
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: SizedBox(
-                              height: 200,
-                              child: Image.asset(
-                                'assets/estoque.png',
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ] else ...[
-                    const TableRow(
-                      decoration: BoxDecoration(color: Colors.red),
-                      children: [
-                        TableCell(
-                          verticalAlignment: TableCellVerticalAlignment.middle,
-                          child: Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Text('Código de barras'),
-                          ),
-                        ),
-                        TableCell(
-                          verticalAlignment: TableCellVerticalAlignment.middle,
-                          child: Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Text('Descrição'),
-                          ),
-                        ),
-                        TableCell(
-                          verticalAlignment: TableCellVerticalAlignment.middle,
-                          child: Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Text('Embalagem'),
-                          ),
-                        ),
-                      ],
-                    ),
-                    ...resultados.map((record) {
-                      return TableRow(
-                        children: [
-                          TableCell(
-                            verticalAlignment:
-                                TableCellVerticalAlignment.middle,
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(record.getStringValue('codauxiliar')),
-                            ),
-                          ),
-                          TableCell(
-                            verticalAlignment:
-                                TableCellVerticalAlignment.middle,
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(record.getStringValue('descricao')),
-                            ),
-                          ),
-                          TableCell(
-                            verticalAlignment:
-                                TableCellVerticalAlignment.middle,
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(record.getStringValue('embalagem')),
-                            ),
-                          ),
-                        ],
-                      );
-                    }),
-                  ],
-                ]),
-          ),
-        ),
-      ),
+      body: resultados.isEmpty ? _buildEmptyState() : _buildResultTable(),
       floatingActionButton: FloatingActionButton(
         onPressed: () => _openTransactionFormModal(context),
         backgroundColor: Colors.red,
         foregroundColor: Colors.white,
         child: const Icon(Icons.search),
+      ),
+    );
+  }
+
+  Widget _buildEmptyState() {
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.all(15.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text('Nenhuma Transação Cadastrada!'),
+            const SizedBox(height: 20),
+            SizedBox(
+              height: 200,
+              child: Image.asset('assets/estoque.png', fit: BoxFit.cover),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildResultTable() {
+    return SingleChildScrollView(
+      child: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: Table(
+            border: TableBorder.all(color: Colors.black),
+            defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+            children: [
+              _buildHeaderRow(),
+              ...resultados.map(_buildDataRow).toList(),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  TableRow _buildHeaderRow() {
+    return TableRow(
+      decoration: const BoxDecoration(color: Colors.red),
+      children: [
+        _buildTableCell('Código de barras'),
+        _buildTableCell('Descrição'),
+        _buildTableCell('Embalagem'),
+      ],
+    );
+  }
+
+  TableRow _buildDataRow(RecordModel record) {
+    return TableRow(
+      children: [
+        _buildTableCell(record.getStringValue('codauxiliar')),
+        _buildTableCell(record.getStringValue('descricao')),
+        _buildTableCell(record.getStringValue('embalagem')),
+      ],
+    );
+  }
+
+  static TableCell _buildTableCell(String text) {
+    return TableCell(
+      verticalAlignment: TableCellVerticalAlignment.middle,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Text(text),
       ),
     );
   }
