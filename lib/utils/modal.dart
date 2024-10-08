@@ -5,7 +5,6 @@ class TransactionForm extends StatefulWidget {
   final Function(ResultList<RecordModel>) onSearchComplete;
   const TransactionForm({super.key, required this.onSearchComplete});
 
-
   @override
   State<TransactionForm> createState() => _TransactionFormState();
 }
