@@ -20,7 +20,7 @@ class _TransactionFormState extends State<TransactionForm> {
   Future<void> busca() async {
     final resultList = await pb.collection('embalagens').getList(
           filter:
-              'descricao = "${departamento.value}" || codauxiliar = "${codigoDeBarras.text}"',
+              'descricao = "${departamento.value}" || codauxiliar = "${codigoDeBarras.text}" || secao = ${secao.value} || marca = ${marca.value}',
           fields: 'descricao,codauxiliar,embalagem',
         );
     widget.onSearchComplete(resultList);
