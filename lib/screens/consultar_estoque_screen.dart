@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../utils/modal.dart';
+import 'package:pocketbase/pocketbase.dart';
 
 class ConsultarEstoqueScreen extends StatefulWidget {
   const ConsultarEstoqueScreen({super.key});
@@ -9,11 +10,19 @@ class ConsultarEstoqueScreen extends StatefulWidget {
 }
 
 class _ConsultarEstoqueScreenState extends State<ConsultarEstoqueScreen> {
+  List<RecordModel> resultados = [];
+
   _openTransactionFormModal(BuildContext context) {
     showModalBottomSheet(
       context: context,
       builder: (_) {
-        return const TransactionForm();
+        return TransactionForm(
+          onSearchComplete: (resultList) {
+            setState(() {
+              resultados = resultList.items; // Armazena os resultados
+            });
+          },
+        );
       },
     );
   }
@@ -42,52 +51,51 @@ class _ConsultarEstoqueScreenState extends State<ConsultarEstoqueScreen> {
                         verticalAlignment: TableCellVerticalAlignment.middle,
                         child: Padding(
                           padding: EdgeInsets.all(8.0),
-                          child: Text('Titulo 1'),
+                          child: Text('Código de barras'),
                         ),
                       ),
                       TableCell(
                         verticalAlignment: TableCellVerticalAlignment.middle,
                         child: Padding(
                           padding: EdgeInsets.all(8.0),
-                          child: Text('Titulo 2'),
+                          child: Text('Descrição'),
                         ),
                       ),
                       TableCell(
                         verticalAlignment: TableCellVerticalAlignment.middle,
                         child: Padding(
                           padding: EdgeInsets.all(8.0),
-                          child: Text('Titulo 3'),
+                          child: Text('Embalagem'),
                         ),
                       ),
                     ]),
-                ...List.generate(
-                  50,
-                  (index) => const TableRow(
+                ...resultados.map((record) {
+                  return TableRow(
                     children: [
                       TableCell(
                         verticalAlignment: TableCellVerticalAlignment.middle,
                         child: Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Text('TransactionData.codAuxiliar as String'),
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(record.getStringValue('codauxiliar')),
                         ),
                       ),
                       TableCell(
                         verticalAlignment: TableCellVerticalAlignment.middle,
                         child: Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Text('TransactionData.descricao as String'),
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(record.getStringValue('descricao')),
                         ),
                       ),
                       TableCell(
                         verticalAlignment: TableCellVerticalAlignment.middle,
                         child: Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Text('TransactionData.embalagem as String'),
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(record.getStringValue('embalagem')),
                         ),
                       ),
                     ],
-                  ),
-                ),
+                  );
+                }),
               ],
             ),
           ),

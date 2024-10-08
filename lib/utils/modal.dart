@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:pocketbase/pocketbase.dart';
 
 class TransactionForm extends StatefulWidget {
-  const TransactionForm({super.key});
+  final Function(ResultList<RecordModel>) onSearchComplete;
+  const TransactionForm({super.key, required this.onSearchComplete});
+
 
   @override
   State<TransactionForm> createState() => _TransactionFormState();
@@ -22,7 +24,8 @@ class _TransactionFormState extends State<TransactionForm> {
               'descricao = "${departamento.value}" && codauxiliar = "${codigoDeBarras.text}"',
           fields: 'descricao,codauxiliar,embalagem',
         );
-    print(resultList);
+    widget.onSearchComplete(resultList);
+    Navigator.of(context).pop();
   }
 
   @override
