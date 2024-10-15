@@ -75,7 +75,7 @@ class _ConsultarEstoqueScreenState extends State<ConsultarEstoqueScreen> {
             defaultVerticalAlignment: TableCellVerticalAlignment.middle,
             children: [
               _buildHeaderRow(),
-              ...resultados.map(_buildDataRow).toList(),
+              ...resultados.map(_buildDataRow),
             ],
           ),
         ),
