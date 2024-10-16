@@ -19,7 +19,7 @@ class _ConsultarEstoqueScreenState extends State<ConsultarEstoqueScreen> {
         return TransactionForm(
           onSearchComplete: (resultList) {
             setState(() {
-              resultados = resultList.items; // Armazena os resultados
+              resultados = resultList.items;
             });
           },
         );
