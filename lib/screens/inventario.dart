@@ -18,10 +18,6 @@ class _InventarioScreenState extends State<InventarioScreen> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'inventario',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.red,
@@ -40,7 +36,7 @@ class _InventarioScreenState extends State<InventarioScreen> {
                   controller: codigoDeBarras,
                   cursorColor: Colors.red,
                   keyboardType:
-                  const TextInputType.numberWithOptions(decimal: true),
+                      const TextInputType.numberWithOptions(decimal: true),
                   decoration: InputDecoration(
                       labelText: 'Código de barras',
                       floatingLabelStyle: const TextStyle(
@@ -52,7 +48,7 @@ class _InventarioScreenState extends State<InventarioScreen> {
                       fillColor: Colors.white,
                       focusedBorder: OutlineInputBorder(
                           borderSide:
-                          const BorderSide(color: Colors.red, width: 2),
+                              const BorderSide(color: Colors.red, width: 2),
                           borderRadius: BorderRadius.circular(10))),
                 ),
                 const SizedBox(height: 20),
@@ -85,37 +81,37 @@ class _InventarioScreenState extends State<InventarioScreen> {
                               const Text(
                                 'Código de barras: ',
                                 style:
-                                TextStyle(color: Colors.grey, fontSize: 18),
+                                    TextStyle(color: Colors.grey, fontSize: 18),
                               ),
                               const Text(
                                 'Inventário: ',
                                 style:
-                                TextStyle(color: Colors.grey, fontSize: 18),
+                                    TextStyle(color: Colors.grey, fontSize: 18),
                               ),
                               const Text(
                                 'Departamento: ',
                                 style:
-                                TextStyle(color: Colors.grey, fontSize: 18),
+                                    TextStyle(color: Colors.grey, fontSize: 18),
                               ),
                               const Text(
                                 'Seção: ',
                                 style:
-                                TextStyle(color: Colors.grey, fontSize: 18),
+                                    TextStyle(color: Colors.grey, fontSize: 18),
                               ),
                               const Text(
                                 'Categoria: ',
                                 style:
-                                TextStyle(color: Colors.grey, fontSize: 18),
+                                    TextStyle(color: Colors.grey, fontSize: 18),
                               ),
                               const Text(
                                 'Subcategoria: ',
                                 style:
-                                TextStyle(color: Colors.grey, fontSize: 18),
+                                    TextStyle(color: Colors.grey, fontSize: 18),
                               ),
                               const Text(
                                 'Quantidade atual: ',
                                 style:
-                                TextStyle(color: Colors.grey, fontSize: 18),
+                                    TextStyle(color: Colors.grey, fontSize: 18),
                               ),
                               Row(
                                 children: [
@@ -133,19 +129,19 @@ class _InventarioScreenState extends State<InventarioScreen> {
                                       onSubmitted: (value) {},
                                       cursorColor: Colors.red,
                                       keyboardType:
-                                      const TextInputType.numberWithOptions(
-                                          decimal: true),
+                                          const TextInputType.numberWithOptions(
+                                              decimal: true),
                                       decoration: InputDecoration(
                                           border: OutlineInputBorder(
                                               borderRadius:
-                                              BorderRadius.circular(10)),
+                                                  BorderRadius.circular(10)),
                                           filled: true,
                                           fillColor: Colors.grey[200],
                                           focusedBorder: OutlineInputBorder(
                                               borderSide: const BorderSide(
                                                   color: Colors.red, width: 2),
                                               borderRadius:
-                                              BorderRadius.circular(10))),
+                                                  BorderRadius.circular(10))),
                                     ),
                                   ),
                                 ],
@@ -178,8 +174,8 @@ class _InventarioScreenState extends State<InventarioScreen> {
                           context,
                           MaterialPageRoute(
                               builder: (context) => const HomeScreen(
-                                paginaInicial: 2,
-                              )),
+                                    paginaInicial: 2,
+                                  )),
                         );
                       },
                       child: const Text('Voltar'),
@@ -214,4 +210,3 @@ class _InventarioScreenState extends State<InventarioScreen> {
     );
   }
 }
-
