@@ -113,6 +113,7 @@ class _InventarioScreenState extends State<InventarioScreen> {
                                 style:
                                     TextStyle(color: Colors.grey, fontSize: 18),
                               ),
+                              const SizedBox(height: 20,),
                               Row(
                                 children: [
                                   const Text(
