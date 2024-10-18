@@ -37,6 +37,7 @@ class _ConsultarEstoqueScreenState extends State<ConsultarEstoqueScreen> {
         foregroundColor: Colors.white,
       ),
       body: resultados.isEmpty ? _buildEmptyState() : _buildResultTable(),
+      backgroundColor: Colors.yellow[50],
       floatingActionButton: FloatingActionButton(
         onPressed: () => _openTransactionFormModal(context),
         backgroundColor: Colors.red,
@@ -53,11 +54,20 @@ class _ConsultarEstoqueScreenState extends State<ConsultarEstoqueScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text('Nenhuma Transação Cadastrada!'),
             const SizedBox(height: 20),
-            SizedBox(
+            Image.asset(
+              'assets/estoque.png',
               height: 200,
-              child: Image.asset('assets/estoque.png', fit: BoxFit.cover),
+            ),
+            const SizedBox(height: 80),
+            const Text(
+              'Realize uma consulta',
+              style: TextStyle(
+                fontSize: 28,
+                fontWeight: FontWeight.bold,
+                color: Colors.red,
+              ),
+              textAlign: TextAlign.center,
             ),
           ],
         ),

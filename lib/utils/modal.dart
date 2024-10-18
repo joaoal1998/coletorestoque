@@ -44,6 +44,9 @@ class _TransactionFormState extends State<TransactionForm> {
               padding:
                   const EdgeInsets.symmetric(vertical: 8.0, horizontal: 24),
               child: TextField(
+                onSubmitted: (value) {
+                  busca();
+                },
                 controller: codigoDeBarras,
                 cursorColor: Colors.red,
                 keyboardType:
