@@ -124,6 +124,7 @@ class _InventarioScreenState extends State<InventarioScreen> {
                                   ),
                                   const SizedBox(width: 10),
                                   SizedBox(
+                                    height: 40,
                                     width: 250,
                                     child: TextField(
                                       onSubmitted: (value) {},
@@ -132,16 +133,22 @@ class _InventarioScreenState extends State<InventarioScreen> {
                                           const TextInputType.numberWithOptions(
                                               decimal: true),
                                       decoration: InputDecoration(
-                                          border: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(10)),
-                                          filled: true,
-                                          fillColor: Colors.grey[200],
-                                          focusedBorder: OutlineInputBorder(
-                                              borderSide: const BorderSide(
-                                                  color: Colors.red, width: 2),
-                                              borderRadius:
-                                                  BorderRadius.circular(10))),
+                                        border: OutlineInputBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(10)),
+                                        filled: true,
+                                        fillColor: Colors.grey[200],
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide: const BorderSide(
+                                              color: Colors.red, width: 2),
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                        ),
+                                        contentPadding:
+                                            const EdgeInsets.symmetric(
+                                                vertical: 10,
+                                            horizontal: 10),
+                                      ),
                                     ),
                                   ),
                                 ],
