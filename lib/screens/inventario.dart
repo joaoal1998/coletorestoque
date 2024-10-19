@@ -113,7 +113,9 @@ class _InventarioScreenState extends State<InventarioScreen> {
                                 style:
                                     TextStyle(color: Colors.grey, fontSize: 18),
                               ),
-                              const SizedBox(height: 20,),
+                              const SizedBox(
+                                height: 20,
+                              ),
                               Row(
                                 children: [
                                   const Text(
@@ -147,8 +149,7 @@ class _InventarioScreenState extends State<InventarioScreen> {
                                         ),
                                         contentPadding:
                                             const EdgeInsets.symmetric(
-                                                vertical: 10,
-                                            horizontal: 10),
+                                                vertical: 10, horizontal: 10),
                                       ),
                                     ),
                                   ),
@@ -178,13 +179,7 @@ class _InventarioScreenState extends State<InventarioScreen> {
                         ),
                       ),
                       onPressed: () {
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const HomeScreen(
-                                    paginaInicial: 2,
-                                  )),
-                        );
+                        Navigator.of(context).pop();
                       },
                       child: const Text('Voltar'),
                     ),
