@@ -19,6 +19,12 @@ class _InventarioScreenState extends State<InventarioScreen> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_circle_left_outlined,size: 40),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
           backgroundColor: Colors.red,
           foregroundColor: Colors.white,
           title: const Text('Inventário'),

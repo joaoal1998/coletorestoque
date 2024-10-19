@@ -1,3 +1,4 @@
+import 'package:coletorestoque/screens/tabela.dart';
 import 'package:flutter/material.dart';
 import 'package:pocketbase/pocketbase.dart';
 
@@ -42,7 +43,7 @@ class _ConsultarEstoqueScreenState extends State<ConsultarEstoqueScreen> {
         backgroundColor: Colors.red,
         foregroundColor: Colors.white,
       ),
-      body: resultados.isEmpty ? _buildEmptyState() : _buildResultTable(),
+      body: _buildEmptyState(),
       backgroundColor: Colors.yellow[50],
     );
   }
@@ -57,7 +58,15 @@ class _ConsultarEstoqueScreenState extends State<ConsultarEstoqueScreen> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             const SizedBox(height: 25),
-            const Text("Informe os filtros"),
+            const Text(
+              "Informe os filtros",
+              style: TextStyle(
+                fontSize: 28,
+                fontWeight: FontWeight.bold,
+                color: Colors.red,
+              ),
+              textAlign: TextAlign.center,
+            ),
             const SizedBox(height: 25),
             Padding(
               padding:
@@ -66,6 +75,18 @@ class _ConsultarEstoqueScreenState extends State<ConsultarEstoqueScreen> {
                 onSubmitted: (value) async {
                   await busca();
                   setState(() {});
+                  resultados.isEmpty
+                      ? ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text('Por favor, informe algum filtro'),
+                          ),
+                        )
+                      : Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => TabelaConsulta(
+                                    lista: resultados,
+                                  )));
                 },
                 controller: codigoDeBarras,
                 cursorColor: Colors.red,
@@ -213,61 +234,25 @@ class _ConsultarEstoqueScreenState extends State<ConsultarEstoqueScreen> {
                     onPressed: () async {
                       await busca();
                       setState(() {});
+                      resultados.isEmpty
+                          ? ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content:
+                                    Text('Por favor, informe algum filtro'),
+                              ),
+                            )
+                          : Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => TabelaConsulta(
+                                        lista: resultados,
+                                      )));
                     },
                     child: const Text('Pesquisar'))
               ],
             )
           ],
         ),
-      ),
-    );
-  }
-
-  Widget _buildResultTable() {
-    return SingleChildScrollView(
-      child: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(15.0),
-          child: Table(
-            border: TableBorder.all(color: Colors.black),
-            defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-            children: [
-              _buildHeaderRow(),
-              ...resultados.map(_buildDataRow),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  TableRow _buildHeaderRow() {
-    return TableRow(
-      decoration: const BoxDecoration(color: Colors.red),
-      children: [
-        _buildTableCell('Código de barras'),
-        _buildTableCell('Descrição'),
-        _buildTableCell('Embalagem'),
-      ],
-    );
-  }
-
-  TableRow _buildDataRow(RecordModel record) {
-    return TableRow(
-      children: [
-        _buildTableCell(record.getStringValue('codauxiliar')),
-        _buildTableCell(record.getStringValue('descricao')),
-        _buildTableCell(record.getStringValue('embalagem')),
-      ],
-    );
-  }
-
-  static TableCell _buildTableCell(String text) {
-    return TableCell(
-      verticalAlignment: TableCellVerticalAlignment.middle,
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Text(text),
       ),
     );
   }
