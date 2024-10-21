@@ -7,16 +7,6 @@ class TabelaConsulta extends StatefulWidget {
 
   @override
   State<TabelaConsulta> createState() => _TabelaConsultaState();
-
-  static TableCell _buildTableCell(String text, Color colorText) {
-    return TableCell(
-      verticalAlignment: TableCellVerticalAlignment.middle,
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Text(text, style: TextStyle(color: colorText)),
-      ),
-    );
-  }
 }
 
 class _TabelaConsultaState extends State<TabelaConsulta> {
@@ -28,7 +18,7 @@ class _TabelaConsultaState extends State<TabelaConsulta> {
       home: Scaffold(
         appBar: AppBar(
           leading: IconButton(
-            icon: const Icon(Icons.arrow_circle_left_outlined,size: 40),
+            icon: const Icon(Icons.arrow_circle_left_outlined, size: 40),
             onPressed: () {
               Navigator.pop(context);
             },
@@ -38,48 +28,85 @@ class _TabelaConsultaState extends State<TabelaConsulta> {
           title: const Text('Estoque'),
           centerTitle: true,
         ),
-        body: SingleChildScrollView(
-          child: Center(
-            child: Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: Table(
-                border: TableBorder.all(color: Colors.black),
-                defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+        body: ListView.builder(
+          itemCount: resultados.length,
+          itemBuilder: (ctx, index) {
+            final tr = resultados[index];
+            return Card(
+              elevation: 5,
+              shape: RoundedRectangleBorder(
+                  side: const BorderSide(
+                    color: Colors.red,
+                    width: 2.0,
+                  ),
+                  borderRadius: BorderRadius.circular(8)),
+              color: Colors.white,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  _buildHeaderRow(),
-                  ...resultados.map(_buildDataRow),
+                  Row(
+                    children: [
+                      const SizedBox(width: 10),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const SizedBox(height: 25),
+                          Text(
+                            "${tr.getStringValue('descricao')} ${tr.getStringValue('embalagem')}",
+                            style: const TextStyle(
+                                color: Colors.black,
+                                fontSize: 25,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          Text(
+                            "Código do produto: ${tr.getStringValue('codprod')}",
+                            style: const TextStyle(
+                                color: Colors.grey, fontSize: 18),
+                          ),
+                          Text(
+                            "Código de barras: ${tr.getStringValue('codauxiliar')}",
+                            style: const TextStyle(
+                                color: Colors.grey, fontSize: 18),
+                          ),
+                          Text(
+                            "Marca: ${tr.getStringValue('marca')}",
+                            style: const TextStyle(
+                                color: Colors.grey, fontSize: 18),
+                          ),
+                          Text(
+                            "Fornecedor: ${tr.getStringValue('codfornec')}",
+                            style: const TextStyle(
+                                color: Colors.grey, fontSize: 18),
+                          ),
+                          Text(
+                            "Departamento: ${tr.getStringValue('codepto')}",
+                            style: const TextStyle(
+                                color: Colors.grey, fontSize: 18),
+                          ),
+                          Text(
+                            "Seção: ${tr.getStringValue('codsec')}",
+                            style: const TextStyle(
+                                color: Colors.grey, fontSize: 18),
+                          ),
+                          Text(
+                            "Quantidade estoque: ${tr.getStringValue('descricao')}",
+                            style: const TextStyle(
+                                color: Colors.grey, fontSize: 18),
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ],
               ),
-            ),
-          ),
+            );
+          },
         ),
         backgroundColor: Colors.yellow[50],
       ),
-    );
-  }
-
-  TableRow _buildHeaderRow() {
-    return TableRow(
-      decoration: const BoxDecoration(color: Colors.red),
-      children: [
-        TabelaConsulta._buildTableCell('Código de barras', Colors.white),
-        TabelaConsulta._buildTableCell('Descrição', Colors.white),
-        TabelaConsulta._buildTableCell('Embalagem', Colors.white),
-      ],
-    );
-  }
-
-  TableRow _buildDataRow(RecordModel record) {
-    return TableRow(
-      decoration: const BoxDecoration(color: Colors.white),
-      children: [
-        TabelaConsulta._buildTableCell(
-            record.getStringValue('codauxiliar'), Colors.black),
-        TabelaConsulta._buildTableCell(
-            record.getStringValue('descricao'), Colors.black),
-        TabelaConsulta._buildTableCell(
-            record.getStringValue('embalagem'), Colors.black),
-      ],
     );
   }
 }
