@@ -12,18 +12,16 @@ class ConsultarEstoqueScreen extends StatefulWidget {
 class _ConsultarEstoqueScreenState extends State<ConsultarEstoqueScreen> {
   List<RecordModel> resultados = [];
   late TextEditingController codigoDeBarras = TextEditingController();
-  final departamento = ValueNotifier('');
+  final descricao = ValueNotifier('');
   final secao = ValueNotifier('');
   final marca = ValueNotifier('');
 
   final pb = PocketBase('http://192.168.169.3:8091');
 
   Future<List<RecordModel>> busca() async {
-    final resultList = await pb.collection('embalagens').getList(
-          filter:
-              'descricao = "${departamento.value}" || codauxiliar = "${codigoDeBarras.text}" || codsec = "${secao.value}" || codmarca = "${marca.value}"',
-          fields: 'descricao,codauxiliar,embalagem',
-        );
+    final resultList = await pb.collection('kntestoque').getList(
+      filter: 'descricao = "${descricao.value}" || codauxiliar = "${codigoDeBarras.text}"'
+    );
 
     resultados.clear();
 
@@ -109,7 +107,7 @@ class _ConsultarEstoqueScreenState extends State<ConsultarEstoqueScreen> {
             ),
             const SizedBox(height: 25),
             ValueListenableBuilder(
-              valueListenable: departamento,
+              valueListenable: descricao,
               builder: (BuildContext context, String value, _) {
                 return Container(
                   padding: const EdgeInsets.symmetric(horizontal: 24),
@@ -127,12 +125,12 @@ class _ConsultarEstoqueScreenState extends State<ConsultarEstoqueScreen> {
                                 const BorderSide(color: Colors.red, width: 2),
                             borderRadius: BorderRadius.circular(10))),
                     isExpanded: true,
-                    hint: const Text('Departamento'),
+                    hint: const Text('Descrição'),
                     value: (value.isEmpty) ? null : value,
                     onChanged: (escolha) {
-                      departamento.value = escolha.toString();
+                      descricao.value = escolha.toString();
                     },
-                    items: ['maizena', 'Confeitaria', 'Festas', 'Decoração']
+                    items: ['produto A', 'produto B', 'Festas', 'Decoração']
                         .map(
                           (op) => DropdownMenuItem(
                             value: op,

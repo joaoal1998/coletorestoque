@@ -35,71 +35,103 @@ class _TabelaConsultaState extends State<TabelaConsulta> {
             return Card(
               elevation: 5,
               shape: RoundedRectangleBorder(
-                  side: const BorderSide(
-                    color: Colors.red,
-                    width: 2.0,
-                  ),
-                  borderRadius: BorderRadius.circular(8)),
+                side: const BorderSide(
+                  color: Colors.red,
+                  width: 2.0,
+                ),
+                borderRadius: BorderRadius.circular(8),
+              ),
               color: Colors.white,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  const SizedBox(height: 10,),
                   Row(
                     children: [
                       const SizedBox(width: 10),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const SizedBox(height: 25),
-                          Text(
-                            "${tr.getStringValue('descricao')} ${tr.getStringValue('embalagem')}",
-                            style: const TextStyle(
-                                color: Colors.black,
-                                fontSize: 25,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          Text(
-                            "Código do produto: ${tr.getStringValue('codprod')}",
-                            style: const TextStyle(
-                                color: Colors.grey, fontSize: 18),
-                          ),
-                          Text(
-                            "Código de barras: ${tr.getStringValue('codauxiliar')}",
-                            style: const TextStyle(
-                                color: Colors.grey, fontSize: 18),
-                          ),
-                          Text(
-                            "Marca: ${tr.getStringValue('marca')}",
-                            style: const TextStyle(
-                                color: Colors.grey, fontSize: 18),
-                          ),
-                          Text(
-                            "Fornecedor: ${tr.getStringValue('codfornec')}",
-                            style: const TextStyle(
-                                color: Colors.grey, fontSize: 18),
-                          ),
-                          Text(
-                            "Departamento: ${tr.getStringValue('codepto')}",
-                            style: const TextStyle(
-                                color: Colors.grey, fontSize: 18),
-                          ),
-                          Text(
-                            "Seção: ${tr.getStringValue('codsec')}",
-                            style: const TextStyle(
-                                color: Colors.grey, fontSize: 18),
-                          ),
-                          Text(
-                            "Quantidade estoque: ${tr.getStringValue('descricao')}",
-                            style: const TextStyle(
-                                color: Colors.grey, fontSize: 18),
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                        ],
+                      Text(
+                        "${tr.getStringValue('descricao')} ${tr.getStringValue('embalagem')}",
+                        style: const TextStyle(
+                          color: Colors.black,
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ],
                   ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const SizedBox(width: 10),
+                      Expanded(
+                        child: Text(
+                          "Código do produto: ${tr.getStringValue('codprod')}",
+                          style: const TextStyle(
+                              color: Colors.black, fontSize: 18),
+                        ),
+                      ),
+                      const SizedBox(width: 20),
+                      Expanded(
+                        child: Text(
+                          "Código de barras: ${tr.getStringValue('codauxiliar')}",
+                          style: const TextStyle(
+                              color: Colors.black, fontSize: 18),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const SizedBox(width: 10),
+                      Expanded(
+                        child: Text(
+                          "Marca: ${tr.getStringValue('marca')}",
+                          style: const TextStyle(
+                              color: Colors.black, fontSize: 18),
+                        ),
+                      ),
+                      const SizedBox(width: 20),
+                      Expanded(
+                        child: Text(
+                          "Fornecedor: ${tr.getStringValue('codfornec')}",
+                          style: const TextStyle(
+                              color: Colors.black, fontSize: 18),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const SizedBox(width: 10),
+                      Expanded(
+                        child: Text(
+                          "Departamento: ${tr.getStringValue('codepto')}",
+                          style: const TextStyle(
+                              color: Colors.black, fontSize: 18),
+                        ),
+                      ),
+                      const SizedBox(width: 20),
+                      Expanded(
+                        child: Text(
+                          "Seção: ${tr.getStringValue('codsec')}",
+                          style: const TextStyle(
+                              color: Colors.black, fontSize: 18),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      const SizedBox(width: 10),
+                      Text(
+                        "Quantidade estoque: ${tr.getStringValue('descricao')}",
+                        style: const TextStyle(color: Colors.black, fontSize: 18),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 10),
                 ],
               ),
             );
