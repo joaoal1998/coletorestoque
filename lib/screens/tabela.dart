@@ -50,7 +50,7 @@ class _TabelaConsultaState extends State<TabelaConsulta> {
                     children: [
                       const SizedBox(width: 10),
                       Text(
-                        "${tr.getStringValue('descricao')} ${tr.getStringValue('embalagem')}",
+                        "${tr.getStringValue('descricao')} - ${tr.getStringValue('embalagem')}",
                         style: const TextStyle(
                           color: Colors.black,
                           fontSize: 25,
@@ -65,17 +65,17 @@ class _TabelaConsultaState extends State<TabelaConsulta> {
                       const SizedBox(width: 10),
                       Expanded(
                         child: Text(
-                          "Código do produto: ${tr.getStringValue('codprod')}",
+                          "Cod. produto: ${tr.getStringValue('codprod')}",
                           style: const TextStyle(
-                              color: Colors.black, fontSize: 18),
+                              color: Colors.black, fontSize: 15),
                         ),
                       ),
                       const SizedBox(width: 20),
                       Expanded(
                         child: Text(
-                          "Código de barras: ${tr.getStringValue('codauxiliar')}",
+                          "Cod barras: ${tr.getStringValue('codauxiliar')}",
                           style: const TextStyle(
-                              color: Colors.black, fontSize: 18),
+                              color: Colors.black, fontSize: 15),
                         ),
                       ),
                     ],
@@ -88,7 +88,7 @@ class _TabelaConsultaState extends State<TabelaConsulta> {
                         child: Text(
                           "Marca: ${tr.getStringValue('marca')}",
                           style: const TextStyle(
-                              color: Colors.black, fontSize: 18),
+                              color: Colors.black, fontSize: 15),
                         ),
                       ),
                       const SizedBox(width: 20),
@@ -96,7 +96,7 @@ class _TabelaConsultaState extends State<TabelaConsulta> {
                         child: Text(
                           "Fornecedor: ${tr.getStringValue('codfornec')}",
                           style: const TextStyle(
-                              color: Colors.black, fontSize: 18),
+                              color: Colors.black, fontSize: 15),
                         ),
                       ),
                     ],
@@ -109,7 +109,7 @@ class _TabelaConsultaState extends State<TabelaConsulta> {
                         child: Text(
                           "Departamento: ${tr.getStringValue('codepto')}",
                           style: const TextStyle(
-                              color: Colors.black, fontSize: 18),
+                              color: Colors.black, fontSize: 15),
                         ),
                       ),
                       const SizedBox(width: 20),
@@ -117,7 +117,7 @@ class _TabelaConsultaState extends State<TabelaConsulta> {
                         child: Text(
                           "Seção: ${tr.getStringValue('codsec')}",
                           style: const TextStyle(
-                              color: Colors.black, fontSize: 18),
+                              color: Colors.black, fontSize: 15),
                         ),
                       ),
                     ],
@@ -126,8 +126,8 @@ class _TabelaConsultaState extends State<TabelaConsulta> {
                     children: [
                       const SizedBox(width: 10),
                       Text(
-                        "Quantidade estoque: ${tr.getStringValue('descricao')}",
-                        style: const TextStyle(color: Colors.black, fontSize: 18),
+                        "Quantidade estoque: ${tr.getStringValue('qtestdisp')}",
+                        style: const TextStyle(color: Colors.black, fontSize: 15),
                       ),
                     ],
                   ),
