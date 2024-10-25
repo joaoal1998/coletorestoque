@@ -275,22 +275,40 @@ class _InventarioScreenState extends State<InventarioScreen> {
                       },
                       child: const Text('Voltar'),
                     ),
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        elevation: 5,
-                        backgroundColor: Colors.red,
-                        foregroundColor: Colors.white,
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 25, vertical: 10),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                      ),
-                      onPressed: () async {
-                        await atualiza();
-                      },
-                      child: const Text('Atualizar'),
-                    ),
+                    resultados.isEmpty
+                        ? ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              elevation: 5,
+                              backgroundColor: Colors.red,
+                              foregroundColor: Colors.white,
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 25, vertical: 10),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                            ),
+                            onPressed: () async {
+                              await busca();
+                              setState(() {});
+                            },
+                            child: const Text('Pesquisar'),
+                          )
+                        : ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              elevation: 5,
+                              backgroundColor: Colors.red,
+                              foregroundColor: Colors.white,
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 25, vertical: 10),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                            ),
+                            onPressed: () async {
+                              await atualiza();
+                            },
+                            child: const Text('Atualizar'),
+                          ),
                   ],
                 ),
               ],
