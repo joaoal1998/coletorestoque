@@ -31,6 +31,13 @@ class _InventarioScreenState extends State<InventarioScreen> {
     return resultados;
   }
 
+  Future<void> atualiza() async {
+    final body = <String, dynamic>{
+      "QT1": quantidade.text,
+    };
+    await pb.collection('kntinventario').update('RECORD_ID', body: body);
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -55,6 +62,10 @@ class _InventarioScreenState extends State<InventarioScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 TextField(
+                  onSubmitted: (value) async {
+                    await busca();
+                    setState(() {});
+                  },
                   controller: codigoDeBarras,
                   cursorColor: Colors.red,
                   keyboardType:
@@ -276,13 +287,7 @@ class _InventarioScreenState extends State<InventarioScreen> {
                         ),
                       ),
                       onPressed: () async {
-                        await busca();
-                        setState(() {});
-                        /*ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                            content: Text('Produto atualizado'),
-                          ),
-                        );*/
+                        await atualiza();
                       },
                       child: const Text('Atualizar'),
                     ),
