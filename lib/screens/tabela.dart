@@ -363,6 +363,31 @@ class _TabelaConsultaState extends State<TabelaConsulta> {
                           ),
                         ),
                       ),
+                      const SizedBox(width: 20),
+                      Expanded(
+                        child: RichText(
+                          text: TextSpan(
+                            children: [
+                              const TextSpan(
+                                text: "Preço venda: ",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
+                                  fontSize: 15,
+                                ),
+                              ),
+                              TextSpan(
+                                text: tr.getStringValue('pvenda'),
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.normal,
+                                  color: Colors.black,
+                                  fontSize: 15,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                   const SizedBox(height: 10),
