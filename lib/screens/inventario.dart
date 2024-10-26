@@ -23,7 +23,7 @@ class _InventarioScreenState extends State<InventarioScreen> {
     final resultList = await pb.collection('kntinventario').getList(
         filter: 'codauxiliar = "${codigoDeBarras.text}"',
         fields:
-            "id,numinvent,QT1,codprod,codauxiliar,descricao, embalagem,marca,departamento,secao,qtestger");
+            "id,numinvent,QT1,codprod,codauxiliar,descricao,fornecedor,embalagem,marca,departamento,secao,qtestger");
 
     resultados.clear();
     final record = resultList.items.first;
@@ -227,7 +227,7 @@ class _InventarioScreenState extends State<InventarioScreen> {
                                               ),
                                               TextSpan(
                                                 text: tr.getStringValue(
-                                                    'codfornec'),
+                                                    'fornecedor'),
                                                 style: const TextStyle(
                                                   fontWeight: FontWeight.normal,
                                                   color: Colors.black,
@@ -299,13 +299,40 @@ class _InventarioScreenState extends State<InventarioScreen> {
                                     ],
                                   ),
                                   Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
                                     children: [
                                       const SizedBox(width: 10),
+                                      Expanded(
+                                        child: RichText(
+                                          text: TextSpan(
+                                            children: [
+                                              const TextSpan(
+                                                text: "Quantidade estoque: ",
+                                                style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.black,
+                                                  fontSize: 16,
+                                                ),
+                                              ),
+                                              TextSpan(
+                                                text: tr
+                                                    .getStringValue('qtestger'),
+                                                style: const TextStyle(
+                                                  fontWeight: FontWeight.normal,
+                                                  color: Colors.black,
+                                                  fontSize: 16,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
                                       RichText(
                                         text: TextSpan(
                                           children: [
                                             const TextSpan(
-                                              text: "Quantidade estoque: ",
+                                              text: "Qt inventário: ",
                                               style: TextStyle(
                                                 fontWeight: FontWeight.bold,
                                                 color: Colors.black,
@@ -313,8 +340,7 @@ class _InventarioScreenState extends State<InventarioScreen> {
                                               ),
                                             ),
                                             TextSpan(
-                                              text:
-                                                  tr.getStringValue('qtestger'),
+                                              text: tr.getStringValue('QT1'),
                                               style: const TextStyle(
                                                 fontWeight: FontWeight.normal,
                                                 color: Colors.black,
@@ -428,6 +454,8 @@ class _InventarioScreenState extends State<InventarioScreen> {
                             onPressed: () async {
                               await atualiza();
                               quantidade.clear();
+                              resultados.clear();
+                              codigoDeBarras.clear();
                               FocusScope.of(context).unfocus();
                             },
                             child: const Text('Atualizar'),
