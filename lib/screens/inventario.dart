@@ -22,7 +22,8 @@ class _InventarioScreenState extends State<InventarioScreen> {
   Future<List<RecordModel>> busca() async {
     final resultList = await pb.collection('kntinventario').getList(
         filter: 'codauxiliar = "${codigoDeBarras.text}"',
-        fields: "id,QT1, codauxiliar, descricao, embalagem");
+        fields:
+            "id,numinvent,QT1,codprod,codauxiliar,descricao, embalagem,marca,departamento,secao,qtestger");
 
     resultados.clear();
     final record = resultList.items.first;
@@ -130,20 +131,111 @@ class _InventarioScreenState extends State<InventarioScreen> {
                                     children: [
                                       const SizedBox(width: 10),
                                       Expanded(
-                                        child: Text(
-                                          "Código do produto: ${tr.getStringValue('codprod')}",
-                                          style: const TextStyle(
-                                              color: Colors.black,
-                                              fontSize: 15),
+                                        child: RichText(
+                                          text: TextSpan(
+                                            children: [
+                                              const TextSpan(
+                                                text: "Cod. produto: ",
+                                                style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.black,
+                                                  fontSize: 16,
+                                                ),
+                                              ),
+                                              TextSpan(
+                                                text: tr
+                                                    .getStringValue('codprod'),
+                                                style: const TextStyle(
+                                                  fontWeight: FontWeight.normal,
+                                                  color: Colors.black,
+                                                  fontSize: 16,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
                                         ),
                                       ),
                                       const SizedBox(width: 20),
                                       Expanded(
-                                        child: Text(
-                                          "Inventário: ${tr.getStringValue('numinventario')}",
-                                          style: const TextStyle(
-                                              color: Colors.black,
-                                              fontSize: 15),
+                                          child: RichText(
+                                        text: TextSpan(
+                                          children: [
+                                            const TextSpan(
+                                              text: "Inventário: ",
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.black,
+                                                fontSize: 16,
+                                              ),
+                                            ),
+                                            TextSpan(
+                                              text: tr
+                                                  .getStringValue('numinvent'),
+                                              style: const TextStyle(
+                                                fontWeight: FontWeight.normal,
+                                                color: Colors.black,
+                                                fontSize: 16,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      )),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      const SizedBox(width: 10),
+                                      Expanded(
+                                        child: RichText(
+                                          text: TextSpan(
+                                            children: [
+                                              const TextSpan(
+                                                text: "Marca: ",
+                                                style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.black,
+                                                  fontSize: 16,
+                                                ),
+                                              ),
+                                              TextSpan(
+                                                text:
+                                                    tr.getStringValue('marca'),
+                                                style: const TextStyle(
+                                                  fontWeight: FontWeight.normal,
+                                                  color: Colors.black,
+                                                  fontSize: 16,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                      const SizedBox(width: 20),
+                                      Expanded(
+                                        child: RichText(
+                                          text: TextSpan(
+                                            children: [
+                                              const TextSpan(
+                                                text: "Fornecedor: ",
+                                                style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.black,
+                                                  fontSize: 16,
+                                                ),
+                                              ),
+                                              TextSpan(
+                                                text: tr.getStringValue(
+                                                    'codfornec'),
+                                                style: const TextStyle(
+                                                  fontWeight: FontWeight.normal,
+                                                  color: Colors.black,
+                                                  fontSize: 16,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
                                         ),
                                       ),
                                     ],
@@ -154,55 +246,83 @@ class _InventarioScreenState extends State<InventarioScreen> {
                                     children: [
                                       const SizedBox(width: 10),
                                       Expanded(
-                                        child: Text(
-                                          "Marca: ${tr.getStringValue('marca')}",
-                                          style: const TextStyle(
-                                              color: Colors.black,
-                                              fontSize: 15),
+                                        child: RichText(
+                                          text: TextSpan(
+                                            children: [
+                                              const TextSpan(
+                                                text: "Departamento: ",
+                                                style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.black,
+                                                  fontSize: 16,
+                                                ),
+                                              ),
+                                              TextSpan(
+                                                text: tr.getStringValue(
+                                                    'departamento'),
+                                                style: const TextStyle(
+                                                  fontWeight: FontWeight.normal,
+                                                  color: Colors.black,
+                                                  fontSize: 16,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
                                         ),
                                       ),
                                       const SizedBox(width: 20),
                                       Expanded(
-                                        child: Text(
-                                          "Fornecedor: ${tr.getStringValue('codfornec')}",
-                                          style: const TextStyle(
-                                              color: Colors.black,
-                                              fontSize: 15),
+                                        child: RichText(
+                                          text: TextSpan(
+                                            children: [
+                                              const TextSpan(
+                                                text: "Seção: ",
+                                                style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.black,
+                                                  fontSize: 16,
+                                                ),
+                                              ),
+                                              TextSpan(
+                                                text:
+                                                    tr.getStringValue('secao'),
+                                                style: const TextStyle(
+                                                  fontWeight: FontWeight.normal,
+                                                  color: Colors.black,
+                                                  fontSize: 16,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
                                         ),
                                       ),
                                     ],
                                   ),
                                   Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
                                     children: [
                                       const SizedBox(width: 10),
-                                      Expanded(
-                                        child: Text(
-                                          "Departamento: ${tr.getStringValue('codepto')}",
-                                          style: const TextStyle(
-                                              color: Colors.black,
-                                              fontSize: 15),
+                                      RichText(
+                                        text: TextSpan(
+                                          children: [
+                                            const TextSpan(
+                                              text: "Quantidade estoque: ",
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.black,
+                                                fontSize: 16,
+                                              ),
+                                            ),
+                                            TextSpan(
+                                              text:
+                                                  tr.getStringValue('qtestger'),
+                                              style: const TextStyle(
+                                                fontWeight: FontWeight.normal,
+                                                color: Colors.black,
+                                                fontSize: 16,
+                                              ),
+                                            ),
+                                          ],
                                         ),
-                                      ),
-                                      const SizedBox(width: 20),
-                                      Expanded(
-                                        child: Text(
-                                          "Seção: ${tr.getStringValue('codsec')}",
-                                          style: const TextStyle(
-                                              color: Colors.black,
-                                              fontSize: 15),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  Row(
-                                    children: [
-                                      const SizedBox(width: 10),
-                                      Text(
-                                        "Quantidade estoque: ${tr.getStringValue('qtestger')}",
-                                        style: const TextStyle(
-                                            color: Colors.black, fontSize: 15),
                                       ),
                                     ],
                                   ),
@@ -289,6 +409,7 @@ class _InventarioScreenState extends State<InventarioScreen> {
                             ),
                             onPressed: () async {
                               await busca();
+                              FocusScope.of(context).unfocus();
                               setState(() {});
                             },
                             child: const Text('Pesquisar'),
@@ -306,6 +427,8 @@ class _InventarioScreenState extends State<InventarioScreen> {
                             ),
                             onPressed: () async {
                               await atualiza();
+                              quantidade.clear();
+                              FocusScope.of(context).unfocus();
                             },
                             child: const Text('Atualizar'),
                           ),

@@ -20,8 +20,8 @@ class _ConsultarEstoqueScreenState extends State<ConsultarEstoqueScreen> {
 
   Future<List<RecordModel>> busca() async {
     final resultList = await pb.collection('kntestoque').getList(
-      filter: 'descricao = "${descricao.value}" || codauxiliar = "${codigoDeBarras.text}"'
-    );
+        filter:
+            'descricao = "${descricao.value}" || codauxiliar = "${codigoDeBarras.text}"');
 
     resultados.clear();
 
@@ -231,6 +231,7 @@ class _ConsultarEstoqueScreenState extends State<ConsultarEstoqueScreen> {
                         foregroundColor: Colors.white),
                     onPressed: () async {
                       await busca();
+                      FocusScope.of(context).unfocus();
                       setState(() {});
                       resultados.isEmpty
                           ? ScaffoldMessenger.of(context).showSnackBar(
