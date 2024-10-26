@@ -101,8 +101,9 @@ class _InventarioScreenState extends State<InventarioScreen> {
             );
           },
         );
-        resultados.clear();
         codigoDeBarras.clear();
+        quantidade.clear();
+        resultados.clear();
       } else {
         showDialog(
           context: context,
