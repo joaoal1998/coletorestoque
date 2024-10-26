@@ -14,6 +14,7 @@ class InventarioScreen extends StatefulWidget {
 
 class _InventarioScreenState extends State<InventarioScreen> {
   List<RecordModel> resultados = [];
+  String? id;
   final pb = PocketBase('http://192.168.169.3:8091');
   late TextEditingController codigoDeBarras = TextEditingController();
   late TextEditingController quantidade = TextEditingController();
@@ -21,13 +22,12 @@ class _InventarioScreenState extends State<InventarioScreen> {
   Future<List<RecordModel>> busca() async {
     final resultList = await pb.collection('kntinventario').getList(
         filter: 'codauxiliar = "${codigoDeBarras.text}"',
-        fields: "QT1, codauxiliar, descricao, embalagem");
+        fields: "id,QT1, codauxiliar, descricao, embalagem");
 
     resultados.clear();
-
-    for (var item in resultList.items) {
-      resultados.add(item);
-    }
+    final record = resultList.items.first;
+    resultados.add(record);
+    id = resultados.isNotEmpty ? resultados[0].id : null;
     return resultados;
   }
 
@@ -35,7 +35,7 @@ class _InventarioScreenState extends State<InventarioScreen> {
     final body = <String, dynamic>{
       "QT1": quantidade.text,
     };
-    await pb.collection('kntinventario').update('RECORD_ID', body: body);
+    await pb.collection('kntinventario').update('$id', body: body);
   }
 
   @override
