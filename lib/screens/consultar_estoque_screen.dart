@@ -36,7 +36,7 @@ class _ConsultarEstoqueScreenState extends State<ConsultarEstoqueScreen> {
             return AlertDialog(
               title: const Text('Produto não encontrado'),
               content: const Text(
-                  'Nenhum produto foi encontrado com esse código de barras.'),
+                  'Nenhum produto foi encontrado!'),
               actions: [
                 TextButton(
                   child: const Text('OK'),
@@ -115,11 +115,7 @@ class _ConsultarEstoqueScreenState extends State<ConsultarEstoqueScreen> {
                   await busca();
                   setState(() {});
                   resultados.isEmpty
-                      ? ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                            content: Text('Por favor, informe algum filtro'),
-                          ),
-                        )
+                      ? null
                       : Navigator.push(
                           context,
                           MaterialPageRoute(
