@@ -19,17 +19,58 @@ class _ConsultarEstoqueScreenState extends State<ConsultarEstoqueScreen> {
   final pb = PocketBase('http://192.168.169.3:8091');
 
   Future<List<RecordModel>> busca() async {
-    final resultList = await pb.collection('kntestoque').getList(
-        filter:
-            'descricao = "${descricao.value}" || codauxiliar = "${codigoDeBarras.text}"');
+    try {
+      final resultList = await pb.collection('kntestoque').getList(
+          filter:
+              'descricao = "${descricao.value}" || codauxiliar = "${codigoDeBarras.text}"');
 
-    resultados.clear();
+      resultados.clear();
 
-    for (var item in resultList.items) {
-      resultados.add(item);
+      if (resultList.items.isNotEmpty) {
+        final record = resultList.items.first;
+        resultados.add(record);
+      } else {
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: const Text('Produto não encontrado'),
+              content: const Text(
+                  'Nenhum produto foi encontrado com esse código de barras.'),
+              actions: [
+                TextButton(
+                  child: const Text('OK'),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                ),
+              ],
+            );
+          },
+        );
+      }
+
+      return resultados;
+    } catch (e) {
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: const Text('Erro'),
+            content: const Text('Ocorreu um erro ao buscar o produto.'),
+            actions: [
+              TextButton(
+                child: const Text('OK'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          );
+        },
+      );
+      return [];
     }
-
-    return resultados;
   }
 
   @override
@@ -130,7 +171,7 @@ class _ConsultarEstoqueScreenState extends State<ConsultarEstoqueScreen> {
                     onChanged: (escolha) {
                       descricao.value = escolha.toString();
                     },
-                    items: ['produto A', 'produto B', 'Festas', 'Decoração']
+                    items: ['produto A', 'produto B', 'produto C', 'Decoração']
                         .map(
                           (op) => DropdownMenuItem(
                             value: op,
@@ -234,12 +275,7 @@ class _ConsultarEstoqueScreenState extends State<ConsultarEstoqueScreen> {
                       FocusScope.of(context).unfocus();
                       setState(() {});
                       resultados.isEmpty
-                          ? ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
-                                content:
-                                    Text('Por favor, informe algum filtro'),
-                              ),
-                            )
+                          ? null
                           : Navigator.push(
                               context,
                               MaterialPageRoute(

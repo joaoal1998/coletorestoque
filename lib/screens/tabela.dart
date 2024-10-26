@@ -45,7 +45,9 @@ class _TabelaConsultaState extends State<TabelaConsulta> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SizedBox(height: 10,),
+                  const SizedBox(
+                    height: 10,
+                  ),
                   Row(
                     children: [
                       const SizedBox(width: 10),
@@ -64,18 +66,52 @@ class _TabelaConsultaState extends State<TabelaConsulta> {
                     children: [
                       const SizedBox(width: 10),
                       Expanded(
-                        child: Text(
-                          "Cod. produto: ${tr.getStringValue('codprod')}",
-                          style: const TextStyle(
-                              color: Colors.black, fontSize: 15),
+                        child: RichText(
+                          text: TextSpan(
+                            children: [
+                              const TextSpan(
+                                text: "Cod. produto: ",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
+                                  fontSize: 15,
+                                ),
+                              ),
+                              TextSpan(
+                                text: tr.getStringValue('codprod'),
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.normal,
+                                  color: Colors.black,
+                                  fontSize: 15,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                       const SizedBox(width: 20),
                       Expanded(
-                        child: Text(
-                          "Cod barras: ${tr.getStringValue('codauxiliar')}",
-                          style: const TextStyle(
-                              color: Colors.black, fontSize: 15),
+                        child: RichText(
+                          text: TextSpan(
+                            children: [
+                              const TextSpan(
+                                text: "Cod barras: ",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
+                                  fontSize: 15,
+                                ),
+                              ),
+                              TextSpan(
+                                text: tr.getStringValue('codauxiliar'),
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.normal,
+                                  color: Colors.black,
+                                  fontSize: 15,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ],
@@ -85,18 +121,52 @@ class _TabelaConsultaState extends State<TabelaConsulta> {
                     children: [
                       const SizedBox(width: 10),
                       Expanded(
-                        child: Text(
-                          "Marca: ${tr.getStringValue('marca')}",
-                          style: const TextStyle(
-                              color: Colors.black, fontSize: 15),
+                        child: RichText(
+                          text: TextSpan(
+                            children: [
+                              const TextSpan(
+                                text: "Marca: ",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
+                                  fontSize: 15,
+                                ),
+                              ),
+                              TextSpan(
+                                text: tr.getStringValue('marca'),
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.normal,
+                                  color: Colors.black,
+                                  fontSize: 15,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                       const SizedBox(width: 20),
                       Expanded(
-                        child: Text(
-                          "Fornecedor: ${tr.getStringValue('codfornec')}",
-                          style: const TextStyle(
-                              color: Colors.black, fontSize: 15),
+                        child: RichText(
+                          text: TextSpan(
+                            children: [
+                              const TextSpan(
+                                text: "Fornecedor: ",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
+                                  fontSize: 15,
+                                ),
+                              ),
+                              TextSpan(
+                                text: tr.getStringValue('fornecedor'),
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.normal,
+                                  color: Colors.black,
+                                  fontSize: 15,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ],
@@ -106,18 +176,162 @@ class _TabelaConsultaState extends State<TabelaConsulta> {
                     children: [
                       const SizedBox(width: 10),
                       Expanded(
-                        child: Text(
-                          "Departamento: ${tr.getStringValue('codepto')}",
-                          style: const TextStyle(
-                              color: Colors.black, fontSize: 15),
+                        child: RichText(
+                          text: TextSpan(
+                            children: [
+                              const TextSpan(
+                                text: "Departamento: ",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
+                                  fontSize: 15,
+                                ),
+                              ),
+                              TextSpan(
+                                text: tr.getStringValue('departamento'),
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.normal,
+                                  color: Colors.black,
+                                  fontSize: 15,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                       const SizedBox(width: 20),
                       Expanded(
-                        child: Text(
-                          "Seção: ${tr.getStringValue('codsec')}",
-                          style: const TextStyle(
-                              color: Colors.black, fontSize: 15),
+                        child: RichText(
+                          text: TextSpan(
+                            children: [
+                              const TextSpan(
+                                text: "Seção: ",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
+                                  fontSize: 15,
+                                ),
+                              ),
+                              TextSpan(
+                                text: tr.getStringValue('secao'),
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.normal,
+                                  color: Colors.black,
+                                  fontSize: 15,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const SizedBox(width: 10),
+                      Expanded(
+                        child: RichText(
+                          text: TextSpan(
+                            children: [
+                              const TextSpan(
+                                text: "categoria: ",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
+                                  fontSize: 15,
+                                ),
+                              ),
+                              TextSpan(
+                                text: tr.getStringValue('categoria'),
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.normal,
+                                  color: Colors.black,
+                                  fontSize: 15,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 20),
+                      Expanded(
+                        child: RichText(
+                          text: TextSpan(
+                            children: [
+                              const TextSpan(
+                                text: "Subcategoria: ",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
+                                  fontSize: 15,
+                                ),
+                              ),
+                              TextSpan(
+                                text: tr.getStringValue('subcategoria'),
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.normal,
+                                  color: Colors.black,
+                                  fontSize: 15,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const SizedBox(width: 10),
+                      Expanded(
+                        child: RichText(
+                          text: TextSpan(
+                            children: [
+                              const TextSpan(
+                                text: "Depósito: ",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
+                                  fontSize: 15,
+                                ),
+                              ),
+                              TextSpan(
+                                text: tr.getStringValue('deposito'),
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.normal,
+                                  color: Colors.black,
+                                  fontSize: 15,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 20),
+                      Expanded(
+                        child: RichText(
+                          text: TextSpan(
+                            children: [
+                              const TextSpan(
+                                text: "Fora linha: ",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
+                                  fontSize: 15,
+                                ),
+                              ),
+                              TextSpan(
+                                text: tr.getStringValue('foralinha'),
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.normal,
+                                  color: Colors.black,
+                                  fontSize: 15,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ],
@@ -125,9 +339,29 @@ class _TabelaConsultaState extends State<TabelaConsulta> {
                   Row(
                     children: [
                       const SizedBox(width: 10),
-                      Text(
-                        "Quantidade estoque: ${tr.getStringValue('qtestdisp')}",
-                        style: const TextStyle(color: Colors.black, fontSize: 15),
+                      Expanded(
+                        child: RichText(
+                          text: TextSpan(
+                            children: [
+                              const TextSpan(
+                                text: "Qt. estoque: ",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
+                                  fontSize: 15,
+                                ),
+                              ),
+                              TextSpan(
+                                text: tr.getStringValue('qtestdisp'),
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.normal,
+                                  color: Colors.black,
+                                  fontSize: 15,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
                       ),
                     ],
                   ),

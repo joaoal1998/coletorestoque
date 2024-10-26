@@ -17,6 +17,7 @@ class AjustarContagemScreen extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 64.0),
         color: Colors.yellow[50],
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const SizedBox(
               height: 50,

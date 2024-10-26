@@ -20,23 +20,127 @@ class _InventarioScreenState extends State<InventarioScreen> {
   late TextEditingController quantidade = TextEditingController();
 
   Future<List<RecordModel>> busca() async {
-    final resultList = await pb.collection('kntinventario').getList(
-        filter: 'codauxiliar = "${codigoDeBarras.text}"',
-        fields:
-            "id,numinvent,QT1,codprod,codauxiliar,descricao,fornecedor,embalagem,marca,departamento,secao,qtestger");
+    try {
+      final resultList = await pb.collection('kntinventario').getList(
+            filter: 'codauxiliar = "${codigoDeBarras.text}"',
+            fields:
+                "id,numinvent,QT1,codprod,codauxiliar,descricao,fornecedor,embalagem,marca,departamento,secao,qtestger",
+          );
 
-    resultados.clear();
-    final record = resultList.items.first;
-    resultados.add(record);
-    id = resultados.isNotEmpty ? resultados[0].id : null;
-    return resultados;
+      resultados.clear();
+
+      if (resultList.items.isNotEmpty) {
+        final record = resultList.items.first;
+        resultados.add(record);
+        id = resultados.isNotEmpty ? resultados[0].id : null;
+      } else {
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: const Text('Produto não encontrado'),
+              content: const Text(
+                  'Nenhum produto foi encontrado com esse código de barras.'),
+              actions: [
+                TextButton(
+                  child: const Text('OK'),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                ),
+              ],
+            );
+          },
+        );
+      }
+
+      return resultados;
+    } catch (e) {
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: const Text('Erro'),
+            content: const Text('Ocorreu um erro ao buscar o produto.'),
+            actions: [
+              TextButton(
+                child: const Text('OK'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          );
+        },
+      );
+      return [];
+    }
   }
 
   Future<void> atualiza() async {
     final body = <String, dynamic>{
       "QT1": quantidade.text,
     };
-    await pb.collection('kntinventario').update('$id', body: body);
+
+    try {
+      if (quantidade.text.isNotEmpty) {
+        await pb.collection('kntinventario').update('$id', body: body);
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: const Text('Informação atualizada!'),
+              actions: [
+                TextButton(
+                  child: const Text('OK'),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                ),
+              ],
+            );
+          },
+        );
+        resultados.clear();
+        codigoDeBarras.clear();
+      } else {
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: const Text('Atenção'),
+              content: const Text('Informe uma quantidade!'),
+              actions: [
+                TextButton(
+                  child: const Text('OK'),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                ),
+              ],
+            );
+          },
+        );
+      }
+    } catch (e) {
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: const Text('Erro'),
+            content: const Text('Não foi possível atualizar!'),
+            actions: [
+              TextButton(
+                child: const Text('OK'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          );
+        },
+      );
+    }
   }
 
   @override
@@ -308,7 +412,7 @@ class _InventarioScreenState extends State<InventarioScreen> {
                                           text: TextSpan(
                                             children: [
                                               const TextSpan(
-                                                text: "Quantidade estoque: ",
+                                                text: "Qt. estoque: ",
                                                 style: TextStyle(
                                                   fontWeight: FontWeight.bold,
                                                   color: Colors.black,
@@ -328,26 +432,29 @@ class _InventarioScreenState extends State<InventarioScreen> {
                                           ),
                                         ),
                                       ),
-                                      RichText(
-                                        text: TextSpan(
-                                          children: [
-                                            const TextSpan(
-                                              text: "Qt inventário: ",
-                                              style: TextStyle(
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.black,
-                                                fontSize: 16,
+                                      const SizedBox(width: 20),
+                                      Expanded(
+                                        child: RichText(
+                                          text: TextSpan(
+                                            children: [
+                                              const TextSpan(
+                                                text: "Qt inventário: ",
+                                                style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.black,
+                                                  fontSize: 16,
+                                                ),
                                               ),
-                                            ),
-                                            TextSpan(
-                                              text: tr.getStringValue('QT1'),
-                                              style: const TextStyle(
-                                                fontWeight: FontWeight.normal,
-                                                color: Colors.black,
-                                                fontSize: 16,
+                                              TextSpan(
+                                                text: tr.getStringValue('QT1'),
+                                                style: const TextStyle(
+                                                  fontWeight: FontWeight.normal,
+                                                  color: Colors.black,
+                                                  fontSize: 16,
+                                                ),
                                               ),
-                                            ),
-                                          ],
+                                            ],
+                                          ),
                                         ),
                                       ),
                                     ],
@@ -453,10 +560,6 @@ class _InventarioScreenState extends State<InventarioScreen> {
                             ),
                             onPressed: () async {
                               await atualiza();
-                              quantidade.clear();
-                              resultados.clear();
-                              codigoDeBarras.clear();
-                              FocusScope.of(context).unfocus();
                             },
                             child: const Text('Atualizar'),
                           ),
