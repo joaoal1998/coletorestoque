@@ -369,7 +369,7 @@ class _TabelaConsultaState extends State<TabelaConsulta> {
                           text: TextSpan(
                             children: [
                               const TextSpan(
-                                text: "Preço venda: ",
+                                text: "Preço venda: R\$",
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   color: Colors.black,
