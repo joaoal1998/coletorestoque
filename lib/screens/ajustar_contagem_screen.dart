@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'inventario.dart';
+import 'consulta_inventario.dart';
 
 class AjustarContagemScreen extends StatelessWidget {
   const AjustarContagemScreen({super.key});
@@ -57,7 +58,13 @@ class AjustarContagemScreen extends StatelessWidget {
                 ),
                 const SizedBox(width: 30),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                const ConsultaInventarioScreen()));
+                  },
                   style: ElevatedButton.styleFrom(
                     elevation: 10,
                     backgroundColor: Colors.red,
