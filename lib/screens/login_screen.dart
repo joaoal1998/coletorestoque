@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'home_screen.dart';
-import 'package:pocketbase/pocketbase.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -13,12 +12,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();
   bool _obscurePassword = true;
-  final pb = PocketBase('http://192.168.169.3:8091');
   bool _isLoading = false;
-
-  Future<void> signIn(username, password) async {
-    await pb.collection('users').authWithPassword(username, password);
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -134,12 +128,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               _isLoading = true;
                             });
 
-                            final username = _usernameController.text;
-                            final password = _passwordController.text;
-
                             try {
-                              await signIn(username, password);
-
                               Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(
