@@ -1,7 +1,6 @@
 import 'package:coletorestoque/screens/tabela.dart';
 import 'package:flutter/material.dart';
-import 'dart:convert';
-import 'package:http/http.dart' as http;
+import 'package:pocketbase/pocketbase.dart';
 
 class ConsultarEstoqueScreen extends StatefulWidget {
   const ConsultarEstoqueScreen({super.key});
@@ -11,32 +10,66 @@ class ConsultarEstoqueScreen extends StatefulWidget {
 }
 
 class _ConsultarEstoqueScreenState extends State<ConsultarEstoqueScreen> {
-  String _resultado = '';
+  List<RecordModel> resultados = [];
   late TextEditingController codigoDeBarras = TextEditingController();
   final descricao = ValueNotifier('');
   final secao = ValueNotifier('');
   final marca = ValueNotifier('');
 
-  Future<void> buscarProduto() async {
-    const url = 'http://192.168.2.58:8000/consulta/produtos/?codigo=4';
+  final pb = PocketBase('http://192.168.169.3:8091');
 
+  Future<List<RecordModel>> busca() async {
     try {
-      final response = await http.get(Uri.parse(url));
+      final resultList = await pb.collection('kntestoque').getList(
+          filter:
+              'descricao = "${descricao.value}" || codauxiliar = "${codigoDeBarras.text}"');
 
-      if (response.statusCode == 200) {
-        final data = json.decode(response.body);
-        setState(() {
-          _resultado = data.toString();
-        });
+      resultados.clear();
+
+      if (resultList.items.isNotEmpty) {
+        final record = resultList.items.first;
+        resultados.add(record);
       } else {
-        setState(() {
-          _resultado = 'Erro: ${response.statusCode}';
-        });
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: const Text('Produto não encontrado'),
+              content: const Text(
+                  'Nenhum produto foi encontrado!'),
+              actions: [
+                TextButton(
+                  child: const Text('OK'),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                ),
+              ],
+            );
+          },
+        );
       }
+
+      return resultados;
     } catch (e) {
-      setState(() {
-        _resultado = 'Erro: $e';
-      });
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: const Text('Erro'),
+            content: const Text('Ocorreu um erro ao buscar o produto.'),
+            actions: [
+              TextButton(
+                child: const Text('OK'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          );
+        },
+      );
+      return [];
     }
   }
 
@@ -79,8 +112,8 @@ class _ConsultarEstoqueScreenState extends State<ConsultarEstoqueScreen> {
                   const EdgeInsets.symmetric(vertical: 8.0, horizontal: 24),
               child: TextField(
                 onSubmitted: (value) async {
-                  await buscarProduto();
-                  /*setState(() {});
+                  await busca();
+                  setState(() {});
                   resultados.isEmpty
                       ? null
                       : Navigator.push(
@@ -88,7 +121,7 @@ class _ConsultarEstoqueScreenState extends State<ConsultarEstoqueScreen> {
                           MaterialPageRoute(
                               builder: (context) => TabelaConsulta(
                                     lista: resultados,
-                                  )));*/
+                                  )));
                 },
                 controller: codigoDeBarras,
                 cursorColor: Colors.red,
@@ -234,9 +267,8 @@ class _ConsultarEstoqueScreenState extends State<ConsultarEstoqueScreen> {
                         backgroundColor: Colors.red,
                         foregroundColor: Colors.white),
                     onPressed: () async {
-                      await buscarProduto();
-                      print(_resultado);
-                     /* FocusScope.of(context).unfocus();
+                      await busca();
+                      FocusScope.of(context).unfocus();
                       setState(() {});
                       resultados.isEmpty
                           ? null
@@ -245,7 +277,7 @@ class _ConsultarEstoqueScreenState extends State<ConsultarEstoqueScreen> {
                               MaterialPageRoute(
                                   builder: (context) => TabelaConsulta(
                                         lista: resultados,
-                                      )));*/
+                                      )));
                     },
                     child: const Text('Pesquisar'))
               ],
