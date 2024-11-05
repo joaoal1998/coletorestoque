@@ -35,8 +35,7 @@ class _ConsultarEstoqueScreenState extends State<ConsultarEstoqueScreen> {
           builder: (BuildContext context) {
             return AlertDialog(
               title: const Text('Produto não encontrado'),
-              content: const Text(
-                  'Nenhum produto foi encontrado!'),
+              content: const Text('Nenhum produto foi encontrado!'),
               actions: [
                 TextButton(
                   child: const Text('OK'),
